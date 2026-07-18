@@ -1,0 +1,124 @@
+	{
+  "diagrama": {
+	"nome": "Modelo Entidade-Relacionamento - Biblioteca",
+	"versao": "1.0",
+	"entidades": [
+	  {
+		"id": "1",
+		"nome": "biblioteca",
+		"atributos": [
+		  {
+			"nome": "nome",
+			"tipo": "VARCHAR(100)",
+			"chavePrimaria": true,
+			"descricao": "Identificador e nome da biblioteca"
+		  },
+		  {
+			"nome": "endereço",
+			"tipo": "VARCHAR(255)",
+			"chavePrimaria": false,
+			"descricao": "Morada física da biblioteca"
+		  },
+		  {
+			"nome": "numero de funcionários",
+			"tipo": "INT",
+			"chavePrimaria": false,
+			"descricao": "Quantidade de funcionários que trabalham na biblioteca"
+		  }
+		]
+	  },
+	  {
+		"id": "2",
+		"nome": "estantes",
+		"atributos": [
+		  {
+			"nome": "setor",
+			"tipo": "VARCHAR(50)",
+			"chavePrimaria": true,
+			"descricao": "Identificador único da estante ou do setor"
+		  },
+		  {
+			"nome": "número de livros",
+			"tipo": "INT",
+			"chavePrimaria": false,
+			"descricao": "Atributo derivado (calculado automaticamente com base na quantidade de livros associados)"
+		  }
+		]
+	  },
+	  {
+		"id": "3",
+		"nome": "livro",
+		"atributos": [
+		  {
+			"nome": "ISBN",
+			"tipo": "VARCHAR(20)",
+			"chavePrimaria": true,
+			"descricao": "Identificador único universal do livro"
+		  },
+		  {
+			"nome": "nome",
+			"tipo": "VARCHAR(200)",
+			"chavePrimaria": false,
+			"descricao": "Título da obra"
+		  },
+		  {
+			"nome": "Autor",
+			"tipo": "VARCHAR(100)",
+			"chavePrimaria": false,
+			"descricao": "Autor principal do livro"
+		  },
+		  {
+			"nome": "género",
+			"tipo": "ARRAY/VARCHAR",
+			"chavePrimaria": false,
+			"descricao": "Atributo multivalorado (um livro pode pertencer a vários géneros)"
+		  }
+		]
+	  }
+	],
+	"relacionamentos": [
+	  {
+		"id": "R1",
+		"nome": "possui",
+		"descricao": "Uma biblioteca possui várias estantes",
+		"entidadeOrigem": {
+		  "nome": "biblioteca",
+		  "cardinalidade": "1"
+		},
+		"entidadeDestino": {
+		  "nome": "estantes",
+		  "cardinalidade": "N"
+		},
+		"tipo": "Um para Muitos",
+		"atributosRelacionamento": [
+		  {
+			"nome": "quantidade",
+			"tipo": "INT",
+			"descricao": "Quantidade de estantes daquele setor presentes na biblioteca"
+		  }
+		]
+	  },
+	  {
+		"id": "R2",
+		"nome": "possui",
+		"descricao": "Uma estante possui vários livros associados a ela",
+		"entidadeOrigem": {
+		  "nome": "estantes",
+		  "cardinalidade": "1"
+		},
+		"entidadeDestino": {
+		  "nome": "livro",
+		  "cardinalidade": "N"
+		},
+		"tipo": "Um para Muitos",
+		"atributosRelacionamento": [
+		  {
+			"nome": "quantidade",
+			"tipo": "INT",
+			"descricao": "Quantidade de exemplares do mesmo livro na referida estante"
+		  }
+		]
+	  }
+	]
+  }
+}

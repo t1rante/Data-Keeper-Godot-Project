@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c41c5h0d50s6a"]
+
+[ext_resource type="Texture2D" uid="uid://bebjnigbi2p5x" path="res://Sprites/2.png" id="1_vqpb0"]
+[ext_resource type="Script" uid="uid://bqbfoxn25tv5h" path="res://Script/objeto.gd" id="2_heofu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3181k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hf0rl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7st5w"]
+
+[node name="Relacionamento" type="Sprite2D" unique_id=1284084406]
+texture = ExtResource("1_vqpb0")
+script = ExtResource("2_heofu")
+
+[node name="Button" type="Button" parent="." unique_id=1241116771]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -80.0
+offset_top = -43.0
+offset_right = 80.0
+offset_bottom = 42.0
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=763234569]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -115.0
+offset_right = -58.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 0.84313726)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3181k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hf0rl")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_7st5w")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
