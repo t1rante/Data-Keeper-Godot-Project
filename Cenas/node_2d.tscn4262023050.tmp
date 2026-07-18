@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnf6qjwpow6ga"]
+
+[ext_resource type="Script" uid="uid://bgcmdv034764d" path="res://Script/game_manager.gd" id="1_xhpu3"]
+[ext_resource type="Texture2D" uid="uid://b1cg0si6fu7a2" path="res://Sprites/1.png" id="4_gxfnd"]
+[ext_resource type="PackedScene" uid="uid://bfwi68bm0014x" path="res://Cenas/linha.tscn" id="4_o0qou"]
+[ext_resource type="Texture2D" uid="uid://bebjnigbi2p5x" path="res://Sprites/2.png" id="5_b4w7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ofe7"]
+size = Vector2(159, 85)
+
+[node name="main" type="Node2D" node_paths=PackedStringArray("obj_enti", "obj_rela")]
+script = ExtResource("1_xhpu3")
+obj_enti = NodePath("Entidade_obj")
+obj_rela = NodePath("Relacionamento_obj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Entidade_obj" type="Area2D" parent="."]
+position = Vector2(284, -208)
+
+[node name="Sprite2D" type="Sprite2D" parent="Entidade_obj"]
+texture = ExtResource("4_gxfnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entidade_obj"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_4ofe7")
+
+[node name="Relacionamento_obj" type="Area2D" parent="."]
+position = Vector2(284, -208)
+
+[node name="Sprite2D" type="Sprite2D" parent="Relacionamento_obj"]
+position = Vector2(188, -2)
+texture = ExtResource("5_b4w7g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Relacionamento_obj"]
+polygon = PackedVector2Array(123, -3, 187, -52, 253, -2, 188, 48)
+
+[node name="Linha" parent="." instance=ExtResource("4_o0qou")]
+points = PackedVector2Array(1, -4)

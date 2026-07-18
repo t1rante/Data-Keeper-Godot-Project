@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://deue1vm1ovd7u"]
+
+[ext_resource type="Texture2D" uid="uid://m2c6iv4bnohv" path="res://Sprites/3.png" id="1_m7ono"]
+[ext_resource type="Script" uid="uid://bqbfoxn25tv5h" path="res://Script/objeto.gd" id="1_pn6pr"]
+[ext_resource type="Texture2D" uid="uid://b7csvi11d3du4" path="res://Sprites/amarelo.png" id="3_j082s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a2ab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pn6pr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7ono"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_menkp"]
+radius = 13.0
+
+[node name="Atributo" type="Sprite2D" unique_id=802275618]
+texture = ExtResource("1_m7ono")
+script = ExtResource("1_pn6pr")
+
+[node name="Button" type="Button" parent="." unique_id=1055818512]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -99.0
+offset_top = -59.0
+offset_right = 100.0
+offset_bottom = 60.0
+mouse_filter = 1
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=2138599657]
+offset_left = -74.0
+offset_top = -33.0
+offset_right = 70.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 0.84313726)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0a2ab")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pn6pr")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_m7ono")
+
+[node name="BolinhaIndicadora" type="Area2D" parent="." unique_id=2135937252]
+
+[node name="Sprite2D" type="Sprite2D" parent="BolinhaIndicadora" unique_id=1337658385]
+position = Vector2(114, 0)
+texture = ExtResource("3_j082s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BolinhaIndicadora" unique_id=406049147]
+position = Vector2(114, 0)
+shape = SubResource("CircleShape2D_menkp")
+
+[node name="BordaTracejada" type="Line2D" parent="." unique_id=1550287380]
+visible = false
+closed = true
+width = 2.0
+default_color = Color(1, 1, 0, 1)
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]

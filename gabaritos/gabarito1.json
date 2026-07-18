@@ -1,0 +1,130 @@
+{
+  "diagrama": {
+	"nome": "Modelo Entidade-Relacionamento - Loja de Brigadeiros",
+	"versao": "1.0",
+	"entidades": [
+	  {
+		"id": "1",
+		"nome": "cliente",
+		"atributos": [
+		  {
+			"nome": "nome",
+			"tipo": "VARCHAR(100)",
+			"chavePrimaria": true,
+			"descricao": "Parte da chave primária composta do cliente"
+		  },
+		  {
+			"nome": "sala",
+			"tipo": "VARCHAR(50)",
+			"chavePrimaria": true,
+			"descricao": "Parte da chave primária composta do cliente"
+		  },
+		  {
+			"nome": "ano",
+			"tipo": "INT",
+			"chavePrimaria": false,
+			"descricao": "Ano letivo ou de entrada"
+		  },
+		  {
+			"nome": "saldo",
+			"tipo": "DECIMAL(10, 2)",
+			"chavePrimaria": false,
+			"descricao": "Saldo financeiro do cliente"
+		  }
+		]
+	  },
+	  {
+		"id": "2",
+		"nome": "brigadeiro",
+		"atributos": [
+		  {
+			"nome": "sabor",
+			"tipo": "VARCHAR(50)",
+			"chavePrimaria": true,
+			"descricao": "Identificador único do brigadeiro"
+		  },
+		  {
+			"nome": "custo",
+			"tipo": "DECIMAL(10, 2)",
+			"chavePrimaria": false,
+			"descricao": "Custo de produção"
+		  },
+		  {
+			"nome": "lucro_bruto",
+			"tipo": "DECIMAL(10, 2)",
+			"chavePrimaria": false,
+			"descricao": "Valor de venda bruto"
+		  },
+		  {
+			"nome": "lucro_liquido",
+			"tipo": "DECIMAL(10, 2)",
+			"chavePrimaria": false,
+			"descricao": "Atributo gerado automaticamente (lucro_bruto - custo)"
+		  }
+		]
+	  },
+	  {
+		"id": "3",
+		"nome": "ingrediente",
+		"atributos": [
+		  {
+			"nome": "nome",
+			"tipo": "VARCHAR(100)",
+			"chavePrimaria": true,
+			"descricao": "Identificador único do ingrediente"
+		  },
+		  {
+			"nome": "custo",
+			"tipo": "DECIMAL(10, 2)",
+			"chavePrimaria": false,
+			"descricao": "Custo de aquisição do ingrediente"
+		  }
+		]
+	  }
+	],
+	"relacionamentos": [
+	  {
+		"id": "R1",
+		"nome": "compra",
+		"descricao": "Um cliente compra vários brigadeiros e um brigadeiro pode ser comprado por vários clientes",
+		"entidadeOrigem": {
+		  "nome": "cliente",
+		  "cardinalidade": "N"
+		},
+		"entidadeDestino": {
+		  "nome": "brigadeiro",
+		  "cardinalidade": "M"
+		},
+		"tipo": "Muitos para Muitos",
+		"atributosRelacionamento": [
+		  {
+			"nome": "quantidade",
+			"tipo": "INT",
+			"descricao": "Quantidade de brigadeiros adquiridos na transação"
+		  }
+		]
+	  },
+	  {
+		"id": "R2",
+		"nome": "possui",
+		"descricao": "Um brigadeiro é composto por vários ingredientes e um ingrediente compõe vários brigadeiros",
+		"entidadeOrigem": {
+		  "nome": "brigadeiro",
+		  "cardinalidade": "N"
+		},
+		"entidadeDestino": {
+		  "nome": "ingrediente",
+		  "cardinalidade": "M"
+		},
+		"tipo": "Muitos para Muitos",
+		"atributosRelacionamento": [
+		  {
+			"nome": "quantidade",
+			"tipo": "DECIMAL(10, 2)",
+			"descricao": "Quantidade do ingrediente utilizada na receita"
+		  }
+		]
+	  }
+	]
+  }
+}

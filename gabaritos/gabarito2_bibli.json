@@ -1,0 +1,145 @@
+{
+  "diagrama": {
+	"nome": "Modelo Entidade-Relacionamento - Biblioteca (Normalizado)",
+	"versao": "2.0",
+	"entidades": [
+	  {
+		"id": "1",
+		"nome": "biblioteca",
+		"atributos": [
+		  {
+			"nome": "nome",
+			"tipo": "VARCHAR(100)",
+			"chavePrimaria": true,
+			"descricao": "Identificador e nome da biblioteca"
+		  },
+		  {
+			"nome": "endereço",
+			"tipo": "VARCHAR(255)",
+			"chavePrimaria": false,
+			"descricao": "Morada física da biblioteca"
+		  },
+		  {
+			"nome": "numero de funcionários",
+			"tipo": "INT",
+			"chavePrimaria": false,
+			"descricao": "Quantidade de funcionários"
+		  }
+		]
+	  },
+	  {
+		"id": "2",
+		"nome": "estantes",
+		"atributos": [
+		  {
+			"nome": "setor",
+			"tipo": "VARCHAR(50)",
+			"chavePrimaria": true,
+			"descricao": "Identificador único da estante ou do setor"
+		  },
+		  {
+			"nome": "número de livros",
+			"tipo": "INT",
+			"chavePrimaria": false,
+			"descricao": "Atributo derivado (calculado com base nos livros)"
+		  }
+		]
+	  },
+	  {
+		"id": "3",
+		"nome": "livro",
+		"atributos": [
+		  {
+			"nome": "ISBN",
+			"tipo": "VARCHAR(20)",
+			"chavePrimaria": true,
+			"descricao": "Identificador único universal do livro"
+		  },
+		  {
+			"nome": "nome",
+			"tipo": "VARCHAR(200)",
+			"chavePrimaria": false,
+			"descricao": "Título da obra"
+		  },
+		  {
+			"nome": "Autor",
+			"tipo": "VARCHAR(100)",
+			"chavePrimaria": false,
+			"descricao": "Autor principal do livro"
+		  }
+		]
+	  },
+	  {
+		"id": "4",
+		"nome": "gênero",
+		"atributos": [
+		  {
+			"nome": "nome",
+			"tipo": "VARCHAR(50)",
+			"chavePrimaria": true,
+			"descricao": "Identificador e nome do género literário"
+		  }
+		]
+	  }
+	],
+	"relacionamentos": [
+	  {
+		"id": "R1",
+		"nome": "possui",
+		"descricao": "Uma biblioteca possui várias estantes",
+		"entidadeOrigem": {
+		  "nome": "biblioteca",
+		  "cardinalidade": "1"
+		},
+		"entidadeDestino": {
+		  "nome": "estantes",
+		  "cardinalidade": "N"
+		},
+		"tipo": "Um para Muitos",
+		"atributosRelacionamento": [
+		  {
+			"nome": "quantidade",
+			"tipo": "INT",
+			"descricao": "Quantidade de estantes na biblioteca"
+		  }
+		]
+	  },
+	  {
+		"id": "R2",
+		"nome": "possui",
+		"descricao": "Uma estante possui vários livros associados a ela",
+		"entidadeOrigem": {
+		  "nome": "estantes",
+		  "cardinalidade": "1"
+		},
+		"entidadeDestino": {
+		  "nome": "livro",
+		  "cardinalidade": "N"
+		},
+		"tipo": "Um para Muitos",
+		"atributosRelacionamento": [
+		  {
+			"nome": "quantidade",
+			"tipo": "INT",
+			"descricao": "Quantidade de exemplares do livro"
+		  }
+		]
+	  },
+	  {
+		"id": "R3",
+		"nome": "possui",
+		"descricao": "Um livro possui classificação de vários géneros",
+		"entidadeOrigem": {
+		  "nome": "livro",
+		  "cardinalidade": "1"
+		},
+		"entidadeDestino": {
+		  "nome": "gênero",
+		  "cardinalidade": "N"
+		},
+		"tipo": "Um para Muitos",
+		"atributosRelacionamento": []
+	  }
+	]
+  }
+}
