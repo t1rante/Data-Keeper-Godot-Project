@@ -1,0 +1,28 @@
+{
+  "diagrama": {
+	"nome": "Modelo Entidade e Relacionamento - Desafio 1",
+	"versao": "1.0",
+	"entidades": [
+	  {
+		"id": "1",
+		"nome": "Aluno"
+	  },
+	  {
+		"id": "2",
+		"nome": "Curso"
+	  }
+	],
+	"relacionamentos": [
+	  {
+		"id": "R1",
+		"nome": "Matricula",
+		"entidadeOrigem": {
+		  "nome": "Aluno"
+		},
+		"entidadeDestino": {
+		  "nome": "Curso"
+		}
+	  }
+	]
+  }
+}
