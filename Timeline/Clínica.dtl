@@ -1,0 +1,12 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Player leftmost
+join Character/Médico rightmost
+Character/Médico: Preciso organizar as informações da minha clínica.
+Player: Quais informações são importantes?
+Character/Médico: Pacientes, médicos, consultas e especialidades. Um médico pode atender vários pacientes e um paciente pode fazer várias consultas.
+Player: As consultas precisam ter data e horário?
+Character/Médico: Exatamente. Também gostaria de registrar o diagnóstico.
+Player: Perfeito, vou preparar a modelagem.
+<Empty Text Event>
+<Empty Text Event>
+<Empty Text Event>
