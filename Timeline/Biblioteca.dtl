@@ -1,0 +1,12 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Player leftmost
+join Character/Bibliotecario rightmost
+Character/Bibliotecario: Bom dia! Você é o especialista em bancos de dados?
+Player: Bom dia! Sim, sou eu. Em que posso ajudar?
+Character/Bibliotecario: Eu acabei de abrir uma biblioteca e, até agora, estou anotando tudo em planilhas. Já está virando uma bagunça.
+Player: Entendo. O que você precisa controlar?
+Character/Bibliotecario: Quero cadastrar meus livros, os autores, os clientes e também registrar os empréstimos. Às vezes um livro tem mais de um autor, e um cliente pode pegar vários livros emprestados.
+Player: Certo. E você também precisa saber quando um livro foi devolvido?
+Character/Bibliotecario: Sim! Quero registrar a data do empréstimo, a previsão de devolução e a data em que ele realmente foi devolvido.
+Player: Perfeito. Acho que já tenho informações suficientes para começar a modelagem.
+Character/Bibliotecario: Ótimo! Estou contando com você.

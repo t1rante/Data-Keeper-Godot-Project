@@ -1,0 +1,9 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Player leftmost
+join Character/Loja_de_roupa rightmost
+Character/Loja_de_roupa: Olá! Minha loja está crescendo e já não consigo organizar tudo.
+Player: O que você precisa controlar?
+Character/Loja_de_roupa: Tenho vários produtos, cada um com tamanho, cor e preço. Também preciso registrar clientes, pedidos e quais produtos foram vendidos.
+Player: Um pedido pode ter vários produtos?
+Character/Loja_de_roupa: Sim, e cada produto pode aparecer em vários pedidos.
+Player: Certo, já sei como podemos organizar isso.
