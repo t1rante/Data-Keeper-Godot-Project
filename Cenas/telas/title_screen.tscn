@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cqshtl5p51k4u"]
+
+[ext_resource type="Texture2D" uid="uid://c7wags80t4ex0" path="res://assets/Jogo de Banco de Dados.png" id="1_ak2if"]
+[ext_resource type="Script" uid="uid://dxvlgb3qk6lpq" path="res://scripts/title_screen.gd" id="1_ig5kc"]
+[ext_resource type="Theme" uid="uid://dpyiayt2o0j8c" path="res://novo.tres" id="3_ig5kc"]
+
+[sub_resource type="Gradient" id="Gradient_ak2if"]
+offsets = PackedFloat32Array(0.40361446)
+colors = PackedColorArray(0.4863162, 0.6093516, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ig5kc"]
+gradient = SubResource("Gradient_ak2if")
+
+[sub_resource type="Theme" id="Theme_ig5kc"]
+
+[node name="TitleScreen" type="Control" unique_id=339625501]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig5kc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2004665645]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="MarginContainer" unique_id=2090600439]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ig5kc")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=635050061]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer" unique_id=1489034590]
+position = Vector2(-349.99997, 272)
+scale = Vector2(0.78461957, 0.70161295)
+texture = ExtResource("1_ak2if")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=701584006]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme = SubResource("Theme_ig5kc")
+
+[node name="startbtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1109627155]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_ig5kc")
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/icon_hover_color = Color(0.19071737, 0.18387169, 0.6847204, 1)
+theme_override_font_sizes/font_size = 30
+text = "START
+"
+alignment = 0
+autowrap_trim_flags = 0
+
+[node name="opcoesbtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1083597206]
+layout_mode = 2
+theme = ExtResource("3_ig5kc")
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
+theme_override_colors/icon_hover_color = Color(0.19071737, 0.18387169, 0.6847204, 1)
+theme_override_font_sizes/font_size = 30
+text = "OPCOES
+
+
+"
+alignment = 0
+
+[node name="creditosbtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1156765679]
+layout_mode = 2
+theme = ExtResource("3_ig5kc")
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
+theme_override_colors/icon_hover_color = Color(0.19071737, 0.18387169, 0.6847204, 1)
+theme_override_font_sizes/font_size = 30
+text = "CREDITOS
+
+"
+alignment = 0
+
+[node name="sairbtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1616499738]
+layout_mode = 2
+theme = ExtResource("3_ig5kc")
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
+theme_override_colors/icon_hover_color = Color(0.19071737, 0.18387169, 0.6847204, 1)
+theme_override_font_sizes/font_size = 30
+text = "SAIR
+
+
+"
+alignment = 0
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/startbtn" to="." method="_on_startbtn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/opcoesbtn" to="." method="_on_opcoesbtn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/creditosbtn" to="." method="_on_creditosbtn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/sairbtn" to="." method="_on_sairbtn_pressed"]

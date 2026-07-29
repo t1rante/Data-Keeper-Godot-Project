@@ -1,0 +1,14 @@
+{
+  "elementos": {
+    "instancia_12345": {
+      "tipo": "entidade",
+      "nome": "Cliente",
+      "cp": true
+    },
+    "instancia_67890": {
+      "tipo": "relacionamento",
+      "nome": "Compra",
+      "cp": false
+    }
+  }
+}

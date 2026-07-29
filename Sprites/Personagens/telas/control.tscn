@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dpijue4caml4c"]
+
+[ext_resource type="Script" uid="uid://c2xw407nh41cj" path="res://scripts/pausemenu.gd" id="1_62e2m"]
+[ext_resource type="Shader" uid="uid://0x3qrmsf60wx" path="res://new_shader.gdshader" id="2_qtu10"]
+[ext_resource type="FontFile" uid="uid://8xg8kqnlaj0" path="res://assets/04b_19/04B_19__.TTF" id="3_ee4bf"]
+[ext_resource type="Theme" uid="uid://dpyiayt2o0j8c" path="res://novo.tres" id="4_kbped"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ee4bf"]
+shader = ExtResource("2_qtu10")
+shader_parameter/lod = 0.800000038
+
+[sub_resource type="Theme" id="Theme_fj5cn"]
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("3_ee4bf")
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[sub_resource type="Animation" id="Animation_kbped"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qtu10")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fj5cn"]
+resource_name = "blur"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_qtu10"), ExtResource("2_qtu10")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4666667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.800000038]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.46),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iy58a"]
+_data = {
+&"RESET": SubResource("Animation_kbped"),
+&"blur": SubResource("Animation_fj5cn")
+}
+
+[node name="Control" type="Control" unique_id=1887002743]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62e2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=870369163]
+material = SubResource("ShaderMaterial_ee4bf")
+layout_mode = 0
+offset_right = 1155.0
+offset_bottom = 647.0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1583667817]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 369.0
+offset_top = 84.0
+offset_right = 705.0
+offset_bottom = 471.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1706420944]
+layout_mode = 2
+
+[node name="continuabtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=688092587]
+layout_mode = 2
+theme = SubResource("Theme_fj5cn")
+text = "CONTINUAR"
+
+[node name="iniciobtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=618766791]
+layout_mode = 2
+theme = ExtResource("4_kbped")
+text = "INICIO"
+
+[node name="sairbtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=725906971]
+layout_mode = 2
+theme = ExtResource("4_kbped")
+text = "SAIR"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=461711255]
+libraries/ = SubResource("AnimationLibrary_iy58a")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/continuabtn" to="." method="_on_continuabtn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/iniciobtn" to="." method="_on_iniciobtn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/sairbtn" to="." method="_on_sairbtn_pressed"]

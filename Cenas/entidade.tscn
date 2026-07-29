@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://kfp8nu63kh5q"]
+
+[ext_resource type="Texture2D" uid="uid://b1cg0si6fu7a2" path="res://Sprites/1.png" id="1_1w50x"]
+[ext_resource type="Script" uid="uid://bqbfoxn25tv5h" path="res://Script/objeto.gd" id="2_4f1aw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x2hw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_moaj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oe46w"]
+
+[node name="Entidade" type="Sprite2D" unique_id=1460920560]
+texture = ExtResource("1_1w50x")
+script = ExtResource("2_4f1aw")
+
+[node name="Button" type="Button" parent="." unique_id=590401469]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -80.0
+offset_top = -43.0
+offset_right = 80.0
+offset_bottom = 42.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=125061831]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -69.0
+offset_top = -32.0
+offset_right = 70.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 0.85882354)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1x2hw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_moaj3")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_oe46w")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
