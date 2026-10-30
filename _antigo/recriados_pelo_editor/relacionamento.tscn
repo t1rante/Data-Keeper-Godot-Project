@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bm2ntf1gv0y0k"]
+
+[ext_resource type="Script" path="res://Script/objeto.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://fiiheh7oicub" path="res://Sprites/relacionamento.png" id="2_forma"]
+
+[node name="Relacionamento" type="Node2D" unique_id=720904090]
+script = ExtResource("1_script")
+tipo_objeto = "relacionamentos"
+formato = 1
+tamanho = Vector2(156, 92)
+tamanho_nome = Vector2(88, 26)
+
+[node name="Forma" type="Sprite2D" parent="." unique_id=1226044977]
+texture = ExtResource("2_forma")
+region_enabled = true
+region_rect = Rect2(14, 24, 70, 44)

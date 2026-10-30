@@ -1,0 +1,31 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(0.93359375, 0.032821655, 0.032821655, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "Default",
+&"description": "",
+&"display_name": "Bibliotecario",
+&"mirror": false,
+&"nicknames": ["Cliente"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"Default": {
+"export_overrides": {
+"image": "\"res://Sprites/Personagens/Bibliotecario.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 0.45,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

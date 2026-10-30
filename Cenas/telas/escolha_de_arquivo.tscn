@@ -1,0 +1,109 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/telas/escolha_de_arquivo.gd" id="1_escolha"]
+[ext_resource type="Script" path="res://Script/telas/texto_adesivo.gd" id="2_adesivo"]
+[ext_resource type="FontFile" path="res://assets/04b_19/04B_19__.TTF" id="3_04b"]
+
+[sub_resource type="StyleBoxFlat" id="Botao_normal"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.066763654, 0.029276408, 0.1771138, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_hover"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="EscolhaDeArquivo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_escolha")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4862745, 0.60784316, 1, 1)
+
+[node name="Titulo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 460.0
+offset_bottom = 100.0
+mouse_filter = 2
+script = ExtResource("2_adesivo")
+texto = "ARQUIVOS"
+tamanho_da_fonte = 50
+
+[node name="Subtitulo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 44.0
+offset_right = 1112.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+text = "ESCOLHA ONDE O SEU JOGO FICA SALVO"
+vertical_alignment = 1
+
+[node name="Arquivos" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_top = 118.0
+offset_right = 1104.0
+offset_bottom = 560.0
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 2
+
+[node name="Voltar" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_top = 584.0
+offset_right = 220.0
+offset_bottom = 630.0
+tooltip_text = "Voltar à tela de título (Esc)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+text = "VOLTAR"
+
+[node name="Aviso" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 240.0
+offset_top = 584.0
+offset_right = 1104.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_font_sizes/font_size = 15
+vertical_alignment = 1

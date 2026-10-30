@@ -1,0 +1,25 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Player leftmost
+join Bibliotecario rightmost
+Bibliotecario: Bom dia! Você é o especialista em bancos de dados? Muito prazer.
+Bibliotecario: Abri uma biblioteca e anoto tudo em planilhas: os livros, os autores, quem levou o quê... Já está virando uma bagunça.
+label perguntas_da_biblioteca
+- Um livro pode ter mais de um autor? | [if {perguntou.p1} == false]
+	set {perguntou.p1} = true
+	Bibliotecario: Pode, sim! Tenho livro escrito a quatro mãos, a seis... E os autores de que eu mais gosto escreveram vários livros cada um.
+	jump perguntas_da_biblioteca
+- Quem pega os livros emprestados? | [if {perguntou.p2} == false]
+	set {perguntou.p2} = true
+	Bibliotecario: Os clientes da biblioteca. Cada um pode levar vários livros, e o mesmo livro, depois de devolvido, vai para outras pessoas.
+	Bibliotecario: Eu anoto o nome, o CPF e o telefone de cada cliente, para cobrar os atrasados.
+	jump perguntas_da_biblioteca
+- Entendi. Pode continuar.
+Bibliotecario: O que mais me tira o sono são os empréstimos. Preciso saber quando cada um aconteceu.
+label datas_da_biblioteca
+- Além da data do empréstimo, tem outras datas importantes? | [if {perguntou.p3} == false]
+	set {perguntou.p3} = true
+	Bibliotecario: Tem! A previsão de devolução, que eu combino na hora, e a data em que o livro realmente voltou.
+	Bibliotecario: Essas datas são de cada empréstimo, viu? O mesmo livro tem datas diferentes cada vez que sai.
+	jump datas_da_biblioteca
+- Certo, já tenho o suficiente.
+Bibliotecario: Ótimo! Estou contando com você.

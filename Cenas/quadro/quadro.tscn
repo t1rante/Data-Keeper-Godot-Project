@@ -1,0 +1,548 @@
+[gd_scene format=3 uid="uid://bnf6qjwpow6ga"]
+
+[ext_resource type="Script" uid="uid://bgcmdv034764d" path="res://Script/quadro/quadro.gd" id="1_quadro"]
+[ext_resource type="Shader" path="res://Script/quadro/planta.gdshader" id="2_planta"]
+[ext_resource type="Texture2D" uid="uid://r2lm0bb34can" path="res://assets/postits/azul.png" id="3_azul"]
+[ext_resource type="Texture2D" uid="uid://cpu4geqthx3ml" path="res://assets/postits/rosa.png" id="3_rosa"]
+[ext_resource type="Texture2D" uid="uid://dtecuneymvkpe" path="res://assets/postits/verde.png" id="3_verde"]
+[ext_resource type="Texture2D" uid="uid://b1xbby8jd1xwp" path="res://assets/postits/amarelo.png" id="3_amarelo"]
+[ext_resource type="Texture2D" uid="uid://d073pi35lsq0c" path="res://assets/postits/papel.png" id="3_papel"]
+[ext_resource type="Texture2D" uid="uid://dqde0r7gdh4nw" path="res://Sprites/entidade.png" id="4_ent"]
+[ext_resource type="Texture2D" uid="uid://fiiheh7oicub" path="res://Sprites/relacionamento.png" id="4_rel"]
+[ext_resource type="Texture2D" uid="uid://m2c6iv4bnohv" path="res://Sprites/3.png" id="4_atr"]
+[ext_resource type="Texture2D" uid="uid://ds7rx8y26d3hv" path="res://Sprites/especialização.png" id="4_esp"]
+[ext_resource type="PackedScene" path="res://Cenas/quadro/menu_lateral.tscn" id="6_menu"]
+[ext_resource type="Texture2D" path="res://assets/postits/lilas.png" id="3_lilas"]
+[ext_resource type="Texture2D" uid="uid://bkhlfyico17y" path="res://Sprites/agregação.png" id="4_agr"]
+[ext_resource type="Script" path="res://Script/quadro/banco_de_palavras.gd" id="7_banco"]
+[ext_resource type="Script" path="res://Script/quadro/log_da_conversa.gd" id="9_log"]
+[ext_resource type="FontFile" uid="uid://8xg8kqnlaj0" path="res://assets/04b_19/04B_19__.TTF" id="8_04b"]
+
+[sub_resource type="AtlasTexture" id="Icone_Entidade"]
+atlas = ExtResource("4_ent")
+region = Rect2(12, 24, 76, 45)
+
+[sub_resource type="AtlasTexture" id="Icone_Relacionamento"]
+atlas = ExtResource("4_rel")
+region = Rect2(14, 24, 70, 44)
+
+[sub_resource type="AtlasTexture" id="Icone_Atributo"]
+atlas = ExtResource("4_atr")
+region = Rect2(0, 39, 200, 122)
+
+[sub_resource type="AtlasTexture" id="Icone_Especializacao"]
+atlas = ExtResource("4_esp")
+region = Rect2(0, 0, 391, 193)
+
+[sub_resource type="AtlasTexture" id="Icone_Agregacao"]
+atlas = ExtResource("4_agr")
+region = Rect2(0, 26, 219, 101)
+
+[sub_resource type="StyleBoxFlat" id="Botao_normal"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.066763654, 0.029276408, 0.1771138, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="Botao_hover"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="Botao_apertado"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.2, 0.3, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="Dicas_fechadas"]
+bg_color = Color(1, 0.972549, 0.854902, 1)
+border_width_bottom = 4
+border_color = Color(0.839216, 0.776471, 0.588235, 1)
+
+[sub_resource type="ShaderMaterial" id="Material_planta"]
+shader = ExtResource("2_planta")
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_quadro")
+
+[node name="Planta" type="ColorRect" parent="."]
+material = SubResource("Material_planta")
+offset_left = -3624.0
+offset_top = -2976.0
+offset_right = 4776.0
+offset_bottom = 3624.0
+mouse_filter = 2
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Diagrama" type="Node2D" parent="."]
+
+[node name="Linhas" type="Node2D" parent="Diagrama"]
+
+[node name="Pecas" type="Node2D" parent="Diagrama"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MenusLaterais" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Blocos" parent="UI/MenusLaterais" instance=ExtResource("6_menu")]
+layout_mode = 0
+titulo = "Blocos: mostrar/esconder"
+
+[node name="PostIts" type="Control" parent="UI/MenusLaterais/Blocos"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 238.0
+offset_bottom = 342.0
+mouse_filter = 2
+
+[node name="Entidade" type="TextureButton" parent="UI/MenusLaterais/Blocos/PostIts"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 108.0
+offset_bottom = 104.0
+tooltip_text = "Criar entidade"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_azul")
+
+[node name="Icone" type="TextureRect" parent="UI/MenusLaterais/Blocos/PostIts/Entidade"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 94.0
+offset_bottom = 62.0
+mouse_filter = 2
+texture = SubResource("Icone_Entidade")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Rotulo" type="Label" parent="UI/MenusLaterais/Blocos/PostIts/Entidade"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 66.0
+offset_right = 106.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.1, 0.1, 0.16, 1)
+theme_override_font_sizes/font_size = 12
+text = "Entidade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Relacionamento" type="TextureButton" parent="UI/MenusLaterais/Blocos/PostIts"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 0.0
+offset_right = 228.0
+offset_bottom = 104.0
+tooltip_text = "Criar relacionamento"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_rosa")
+
+[node name="Icone" type="TextureRect" parent="UI/MenusLaterais/Blocos/PostIts/Relacionamento"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 94.0
+offset_bottom = 62.0
+mouse_filter = 2
+texture = SubResource("Icone_Relacionamento")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Rotulo" type="Label" parent="UI/MenusLaterais/Blocos/PostIts/Relacionamento"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 66.0
+offset_right = 106.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.1, 0.1, 0.16, 1)
+theme_override_font_sizes/font_size = 12
+text = "Relacionamento"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Atributo" type="TextureButton" parent="UI/MenusLaterais/Blocos/PostIts"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 114.0
+offset_right = 108.0
+offset_bottom = 218.0
+tooltip_text = "Criar atributo"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_verde")
+
+[node name="Icone" type="TextureRect" parent="UI/MenusLaterais/Blocos/PostIts/Atributo"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 94.0
+offset_bottom = 62.0
+mouse_filter = 2
+texture = SubResource("Icone_Atributo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Rotulo" type="Label" parent="UI/MenusLaterais/Blocos/PostIts/Atributo"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 66.0
+offset_right = 106.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.1, 0.1, 0.16, 1)
+theme_override_font_sizes/font_size = 12
+text = "Atributo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Especializacao" type="TextureButton" parent="UI/MenusLaterais/Blocos/PostIts"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 114.0
+offset_right = 228.0
+offset_bottom = 218.0
+tooltip_text = "Criar especialização"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_amarelo")
+
+[node name="Icone" type="TextureRect" parent="UI/MenusLaterais/Blocos/PostIts/Especializacao"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 94.0
+offset_bottom = 62.0
+mouse_filter = 2
+texture = SubResource("Icone_Especializacao")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Rotulo" type="Label" parent="UI/MenusLaterais/Blocos/PostIts/Especializacao"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 66.0
+offset_right = 106.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.1, 0.1, 0.16, 1)
+theme_override_font_sizes/font_size = 12
+text = "Especialização"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Agregacao" type="TextureButton" parent="UI/MenusLaterais/Blocos/PostIts"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 228.0
+offset_right = 168.0
+offset_bottom = 332.0
+tooltip_text = "Criar agregação"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_lilas")
+
+[node name="Icone" type="TextureRect" parent="UI/MenusLaterais/Blocos/PostIts/Agregacao"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 94.0
+offset_bottom = 62.0
+mouse_filter = 2
+texture = SubResource("Icone_Agregacao")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Rotulo" type="Label" parent="UI/MenusLaterais/Blocos/PostIts/Agregacao"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 66.0
+offset_right = 106.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.1, 0.1, 0.16, 1)
+theme_override_font_sizes/font_size = 12
+text = "Agregação"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dicas" type="Control" parent="UI/MenusLaterais/Blocos"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 352.0
+offset_right = 238.0
+offset_bottom = 572.0
+mouse_filter = 2
+
+[node name="DicasAbertas" type="NinePatchRect" parent="UI/MenusLaterais/Blocos/Dicas"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_papel")
+patch_margin_left = 18
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Texto" type="RichTextLabel" parent="UI/MenusLaterais/Blocos/Dicas/DicasAbertas"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.16, 0.14, 0.1, 1)
+theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/bold_font_size = 11
+bbcode_enabled = true
+text = "[b]DICAS[/b]  [color=#8a7443](H esconde)[/color]\n• [b]Post-it[/b] cria · [b]arrastar[/b] move\n• [b]Palavras[/b]: arraste até o bloco\n• [b]Clique[/b] seleciona; dois se ligam\n• [b]Roda[/b] zoom · [b]arrastar o fundo[/b] move\n• [b]0[/b] enquadra o diagrama\n[b]Bloco selecionado[/b]\n• [b]Del[/b] apaga · [b]Esc[/b] desmarca\n• [b]C[/b] chave · [b]D[/b] derivado\n• [b]M[/b] multivalorado (atributo)\n• [b]F[/b] entidade fraca / identificador\n[b]Linhas[/b]\n• Clique seleciona · [b]Del[/b] apaga\n• Botão direito: cardinalidade 1, N, M"
+
+[node name="Fechar" type="Button" parent="UI/MenusLaterais/Blocos/Dicas/DicasAbertas"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = 14.0
+offset_right = -8.0
+offset_bottom = 36.0
+grow_horizontal = 0
+tooltip_text = "Esconder dicas (H)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.35, 0.3, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+text = "x"
+flat = true
+
+[node name="DicasFechadas" type="Button" parent="UI/MenusLaterais/Blocos/Dicas"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 34.0
+tooltip_text = "Mostrar dicas (H)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.16, 0.14, 0.1, 1)
+theme_override_colors/font_hover_color = Color(0.16, 0.14, 0.1, 1)
+theme_override_colors/font_pressed_color = Color(0.16, 0.14, 0.1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("Dicas_fechadas")
+theme_override_styles/hover = SubResource("Dicas_fechadas")
+theme_override_styles/pressed = SubResource("Dicas_fechadas")
+text = "? Dicas (H)"
+
+[node name="Palavras" parent="UI/MenusLaterais" instance=ExtResource("6_menu")]
+layout_mode = 0
+posicao_da_aba = 78.0
+titulo = "Banco de palavras: mostrar/esconder"
+
+[node name="BancoDePalavras" type="Control" parent="UI/MenusLaterais/Palavras"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_banco")
+
+[node name="Titulo" type="Label" parent="UI/MenusLaterais/Palavras/BancoDePalavras"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 238.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_fonts/font = ExtResource("8_04b")
+theme_override_font_sizes/font_size = 22
+text = "PALAVRAS"
+
+[node name="Dica" type="Label" parent="UI/MenusLaterais/Palavras/BancoDePalavras"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 44.0
+offset_right = 236.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.85, 0.88, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Arraste uma palavra até um bloco do quadro para dar o nome a ele."
+autowrap_mode = 3
+
+[node name="Rolagem" type="ScrollContainer" parent="UI/MenusLaterais/Palavras/BancoDePalavras"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 88.0
+offset_right = 240.0
+offset_bottom = 574.0
+horizontal_scroll_mode = 0
+
+[node name="Fichas" type="HFlowContainer" parent="UI/MenusLaterais/Palavras/BancoDePalavras/Rolagem"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 8
+
+[node name="Conversa" parent="UI/MenusLaterais" instance=ExtResource("6_menu")]
+layout_mode = 0
+posicao_da_aba = 142.0
+titulo = "Conversa com o cliente: mostrar/esconder"
+
+[node name="LogDaConversa" type="Control" parent="UI/MenusLaterais/Conversa"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_log")
+
+[node name="Titulo" type="Label" parent="UI/MenusLaterais/Conversa/LogDaConversa"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 238.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_fonts/font = ExtResource("8_04b")
+theme_override_font_sizes/font_size = 22
+text = "CONVERSA"
+
+[node name="Dica" type="Label" parent="UI/MenusLaterais/Conversa/LogDaConversa"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 44.0
+offset_right = 236.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.85, 0.88, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Tudo o que o cliente disse, para reler enquanto monta o diagrama."
+autowrap_mode = 3
+
+[node name="Papel" type="NinePatchRect" parent="UI/MenusLaterais/Conversa/LogDaConversa"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 88.0
+offset_right = 238.0
+offset_bottom = 572.0
+texture = ExtResource("3_papel")
+patch_margin_left = 18
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="TextoDaConversa" type="RichTextLabel" parent="UI/MenusLaterais/Conversa/LogDaConversa/Papel"]
+unique_name_in_owner = true
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 18.0
+offset_right = -10.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.16, 0.14, 0.1, 1)
+theme_override_constants/line_separation = 2
+theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 13
+theme_override_font_sizes/italics_font_size = 13
+bbcode_enabled = true
+text = "conversa"
+
+[node name="Botoes" type="HBoxContainer" parent="UI"]
+offset_left = 914.0
+offset_top = 596.0
+offset_right = 1142.0
+offset_bottom = 636.0
+theme_override_constants/separation = 8
+
+[node name="Verificar" type="Button" parent="UI/Botoes"]
+tooltip_text = "Conferir o diagrama com o pedido do cliente"
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "Verificar"
+
+[node name="Opcoes" type="Button" parent="UI/Botoes"]
+tooltip_text = "Salvar o jogo ou voltar ao menu"
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "Opções"
+
+[connection signal="pressed" from="UI/MenusLaterais/Blocos/PostIts/Entidade" to="." method="criar_bloco" binds= ["entidades"]]
+[connection signal="pressed" from="UI/MenusLaterais/Blocos/PostIts/Relacionamento" to="." method="criar_bloco" binds= ["relacionamentos"]]
+[connection signal="pressed" from="UI/MenusLaterais/Blocos/PostIts/Atributo" to="." method="criar_bloco" binds= ["atributos"]]
+[connection signal="pressed" from="UI/MenusLaterais/Blocos/PostIts/Especializacao" to="." method="criar_bloco" binds= ["especializacoes"]]
+[connection signal="pressed" from="UI/MenusLaterais/Blocos/PostIts/Agregacao" to="." method="criar_bloco" binds= ["agregacoes"]]
+[connection signal="pressed" from="UI/MenusLaterais/Blocos/Dicas/DicasAbertas/Fechar" to="." method="alternar_dicas"]
+[connection signal="pressed" from="UI/MenusLaterais/Blocos/Dicas/DicasFechadas" to="." method="alternar_dicas"]
+[connection signal="pressed" from="UI/Botoes/Verificar" to="." method="verificar_vitoria"]
+[connection signal="pressed" from="UI/Botoes/Opcoes" to="." method="abrir_opcoes"]

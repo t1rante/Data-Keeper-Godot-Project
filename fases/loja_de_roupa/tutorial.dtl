@@ -1,0 +1,21 @@
+# Tutorial do dia 1: a Ana mostra o básico do quadro.
+# Cada "# espera:" para as falas e espera o jogador fazer algo no quadro
+# (formato em Script/quadro/tutorial_do_quadro.gd e fases/COMO_ESCREVER_CONVERSAS.md).
+Ana: Tá, {nome}. O Bruno pediu pra eu te mostrar o quadro. Então vamos acabar logo com isso.
+Ana: Abre a primeira aba da direita, a dos post-its. O azul é a Entidade. Entidade é uma coisa que o sistema guarda\: cliente, pedido, produto.
+Ana: Clica no post-it azul. Vai, eu espero. Sou ótima esperando.
+# espera: bloco_criado entidade
+Ana: Uau. Um retângulo. Emocionante.
+Ana: Agora dá um nome pra ele. Segunda aba, o banco de palavras\: arrasta a palavra até o bloco. Ninguém digita nada aqui.
+# espera: bloco_nomeado entidade
+Ana: Tá vendo esse post-it verde escrito Atributo? Ele vira uma elipse, e ela que vai ditar os campos com as informações de um elemento.
+Ana: Isso quer dizer que um Cliente, nosso elemento, vai ter uma informação dele, que é o seu e-mail, por exemplo. Deu pra entender?
+Ana: Aff, não gosto dessa cara....\
+Se vira aí\: cria um atributo e liga ele numa entidade. Clica em um, depois no outro.
+# espera: blocos_ligados atributo
+Ana: Olha só. Aprende rápido. Não espalha.
+Ana: O losango rosa é o Relacionamento\: o verbo entre duas entidades. Cliente FAZ pedido.
+Ana: Liga o losango nas duas entidades. Clique direito na linha troca a cardinalidade\: 1, N, M. Um cliente faz vários pedidos? Então é 1 de um lado e N do outro.
+# espera: blocos_ligados relacionamento
+Ana: Esqueceu o que a cliente falou? A terceira aba guarda a conversa. Só o que você ouviu, então, se não perguntou... problema seu.
+Ana: Quando terminar, aperta Verificar. Eu vou estar ali fingindo que trabalho.

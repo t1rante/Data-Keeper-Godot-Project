@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dnuo4q5gr38lx"]
+
+[ext_resource type="Script" path="res://Script/objeto.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dqde0r7gdh4nw" path="res://Sprites/entidade.png" id="2_forma"]
+
+[node name="Entidade" type="Node2D" unique_id=617268293]
+script = ExtResource("1_script")
+tamanho_nome = Vector2(112, 28)
+
+[node name="Forma" type="Sprite2D" parent="." unique_id=1067343583]
+texture = ExtResource("2_forma")
+region_enabled = true
+region_rect = Rect2(12, 24, 76, 45)

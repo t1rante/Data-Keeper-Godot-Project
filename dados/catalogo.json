@@ -1,0 +1,138 @@
+{
+	"descricao": "Catálogo da loja do computador da casa. tipo: skin, movel ou decoracao. lugar: onde o item fica na casa (um item equipado por lugar; skin usa o lugar 'skin'). preco em reais. Skins: 'cores' troca partes do sprite da caminhada (jaqueta, jaqueta_sombra, camisa, calca, calca_sombra, cabelo, cabelo_sombra, cabelo_brilho, pele, pele_sombra; ver Script/jogo/skins.gd). Móveis e decoração: 'cor' é o placeholder até a arte ficar pronta.",
+	"itens": [
+		{
+			"id": "skin_padrao",
+			"tipo": "skin",
+			"lugar": "skin",
+			"nome": "Jaqueta vermelha",
+			"preco": 0,
+			"descricao": "A roupa de sempre.",
+			"cores": {}
+		},
+		{
+			"id": "skin_jaqueta_azul",
+			"tipo": "skin",
+			"lugar": "skin",
+			"nome": "Jaqueta azul",
+			"preco": 50,
+			"descricao": "A mesma jaqueta, em azul-planta.",
+			"cores": {
+				"jaqueta": "#4b6bff",
+				"jaqueta_sombra": "#2a3fb0"
+			}
+		},
+		{
+			"id": "skin_moletom_rosa",
+			"tipo": "skin",
+			"lugar": "skin",
+			"nome": "Moletom rosa",
+			"preco": 60,
+			"descricao": "Confortável para dias de muito diagrama.",
+			"cores": {
+				"jaqueta": "#ff74d7",
+				"jaqueta_sombra": "#c0307f"
+			}
+		},
+		{
+			"id": "skin_camisa_verde",
+			"tipo": "skin",
+			"lugar": "skin",
+			"nome": "Camisa verde",
+			"preco": 80,
+			"descricao": "Para atender clientes com estilo.",
+			"cores": {
+				"jaqueta": "#1fdc7a",
+				"jaqueta_sombra": "#0f8a4a",
+				"calca": "#5a4632",
+				"calca_sombra": "#3a2a1a"
+			}
+		},
+		{
+			"id": "skin_jaleco",
+			"tipo": "skin",
+			"lugar": "skin",
+			"nome": "Jaleco de cientista de dados",
+			"preco": 150,
+			"descricao": "Branco, com calça azul.",
+			"cores": {
+				"jaqueta": "#f2f2f8",
+				"jaqueta_sombra": "#b8b8d0",
+				"calca": "#3d4f8f",
+				"calca_sombra": "#2a3566"
+			}
+		},
+		{
+			"id": "sofa",
+			"tipo": "movel",
+			"lugar": "sala",
+			"nome": "Sofá lilás",
+			"preco": 180,
+			"cor": "#b07cff",
+			"descricao": "Para descansar depois do trabalho."
+		},
+		{
+			"id": "poltrona",
+			"tipo": "movel",
+			"lugar": "sala",
+			"nome": "Poltrona azul",
+			"preco": 120,
+			"cor": "#5071ff",
+			"descricao": "Ocupa o lugar do sofá."
+		},
+		{
+			"id": "estante",
+			"tipo": "movel",
+			"lugar": "estante",
+			"nome": "Estante de livros",
+			"preco": 90,
+			"cor": "#a0663a",
+			"descricao": "Cabe todo livro de banco de dados."
+		},
+		{
+			"id": "mesa_de_centro",
+			"tipo": "movel",
+			"lugar": "centro",
+			"nome": "Mesa de centro",
+			"preco": 70,
+			"cor": "#c9a06a",
+			"descricao": "Para apoiar o café."
+		},
+		{
+			"id": "planta",
+			"tipo": "decoracao",
+			"lugar": "canto",
+			"nome": "Vaso de planta",
+			"preco": 30,
+			"cor": "#1fdc7a",
+			"descricao": "Um pouco de verde."
+		},
+		{
+			"id": "poster_er",
+			"tipo": "decoracao",
+			"lugar": "parede",
+			"nome": "Pôster de diagrama ER",
+			"preco": 45,
+			"cor": "#5cfff1",
+			"descricao": "Entidade, relacionamento, atributo."
+		},
+		{
+			"id": "tapete",
+			"tipo": "decoracao",
+			"lugar": "chao",
+			"nome": "Tapete xadrez",
+			"preco": 50,
+			"cor": "#ff74d7",
+			"descricao": "Pixelado, como tudo aqui."
+		},
+		{
+			"id": "caminha_do_gato",
+			"tipo": "decoracao",
+			"lugar": "gato",
+			"nome": "Caminha da Isha",
+			"preco": 70,
+			"cor": "#ffd84d",
+			"descricao": "A Isha agradece."
+		}
+	]
+}

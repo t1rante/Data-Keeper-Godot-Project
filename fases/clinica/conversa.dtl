@@ -1,0 +1,23 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Player leftmost
+join Médico rightmost
+Médico: Bom dia. Serei breve, tenho pacientes esperando.
+Médico: Preciso organizar a minha clínica: os pacientes, os médicos que atendem aqui e as consultas.
+label perguntas_da_clinica
+- Os médicos têm especialidades diferentes? | [if {perguntou.p1} == false]
+	set {perguntou.p1} = true
+	Médico: Sim. Cardiologia, pediatria, dermatologia... O paciente marca pela especialidade, então isso precisa estar no sistema.
+	jump perguntas_da_clinica
+- Uma consulta é sempre de um paciente com um médico? | [if {perguntou.p2} == false]
+	set {perguntou.p2} = true
+	Médico: Exatamente: um paciente, um médico. Mas o mesmo paciente volta muitas vezes, e cada médico atende dezenas de consultas por semana.
+	jump perguntas_da_clinica
+- Entendido, doutor.
+Médico: Das consultas, o principal é saber quando aconteceram.
+label consulta_da_clinica
+- O que mais precisa ficar registrado em cada consulta? | [if {perguntou.p3} == false]
+	set {perguntou.p3} = true
+	Médico: A data e o horário, para a agenda não encavalar. E o diagnóstico, que é o que importa de verdade.
+	jump consulta_da_clinica
+- Perfeito, vou preparar a modelagem.
+Médico: Obrigado. Mande notícias.

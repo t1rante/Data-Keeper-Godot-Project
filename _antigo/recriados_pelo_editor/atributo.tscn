@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dpy6i1juh407i"]
+
+[ext_resource type="Script" path="res://Script/objeto.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://m2c6iv4bnohv" path="res://Sprites/3.png" id="2_forma"]
+
+[node name="Atributo" type="Node2D" unique_id=95441475]
+script = ExtResource("1_script")
+tipo_objeto = "atributos"
+formato = 2
+tamanho = Vector2(140, 78)
+tamanho_nome = Vector2(100, 26)
+
+[node name="Forma" type="Sprite2D" parent="." unique_id=200706718]
+texture = ExtResource("2_forma")
+region_enabled = true
+region_rect = Rect2(0, 39, 200, 122)

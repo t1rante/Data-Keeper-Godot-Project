@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ed31hov00qd7"]
+
+[ext_resource type="Script" path="res://Script/objeto.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bkhlfyico17y" path="res://Sprites/agregação.png" id="2_forma"]
+
+[node name="Agregacao" type="Node2D" unique_id=1744639536]
+script = ExtResource("1_script")
+tipo_objeto = "agregacoes"
+tamanho = Vector2(190, 100)
+tamanho_nome = Vector2(130, 28)
+
+[node name="Forma" type="Sprite2D" parent="." unique_id=1867328362]
+texture = ExtResource("2_forma")
+region_enabled = true
+region_rect = Rect2(0, 26, 219, 101)

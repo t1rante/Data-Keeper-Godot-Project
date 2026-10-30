@@ -1,0 +1,209 @@
+{
+	"diagrama": {
+		"nome": "Modelo Entidade-Relacionamento - Clínica",
+		"versao": "1.0",
+		"descricao": "Gabarito do diálogo fases/clinica/conversa.dtl: pacientes, médicos, consultas e especialidades; um médico atende vários pacientes e um paciente faz várias consultas; a consulta tem data, horário e diagnóstico. Atributos opcionais não valem ponto nem descontam.",
+		"entidades": [
+			{
+				"nome": "paciente",
+				"atributos": [
+					{
+						"nome": "nome",
+						"opcional": true
+					},
+					{
+						"nome": "CPF",
+						"opcional": true
+					},
+					{
+						"nome": "telefone",
+						"opcional": true
+					}
+				],
+				"id": "1"
+			},
+			{
+				"nome": "médico",
+				"atributos": [
+					{
+						"nome": "nome",
+						"opcional": true
+					},
+					{
+						"nome": "CRM",
+						"opcional": true
+					}
+				],
+				"id": "2"
+			},
+			{
+				"id": "3",
+				"nome": "consulta",
+				"atributos": [
+					{
+						"nome": "data"
+					},
+					{
+						"nome": "horário"
+					},
+					{
+						"nome": "diagnóstico"
+					}
+				]
+			},
+			{
+				"nome": "especialidade",
+				"atributos": [
+					{
+						"nome": "nome",
+						"opcional": true
+					}
+				],
+				"id": "4"
+			}
+		],
+		"relacionamentos": [
+			{
+				"id": "R1",
+				"nome": "faz",
+				"sinonimos": [
+					"marca",
+					"realiza",
+					"tem",
+					"possui"
+				],
+				"descricao": "Um paciente faz várias consultas; cada consulta é de um paciente",
+				"entidadeOrigem": {
+					"nome": "paciente",
+					"cardinalidade": "1"
+				},
+				"entidadeDestino": {
+					"nome": "consulta",
+					"cardinalidade": "N"
+				}
+			},
+			{
+				"id": "R2",
+				"nome": "atende",
+				"sinonimos": [
+					"realiza",
+					"faz",
+					"tem",
+					"possui"
+				],
+				"descricao": "Um médico atende várias consultas; cada consulta é com um médico",
+				"entidadeOrigem": {
+					"nome": "médico",
+					"cardinalidade": "1"
+				},
+				"entidadeDestino": {
+					"nome": "consulta",
+					"cardinalidade": "N"
+				}
+			},
+			{
+				"nome": "possui",
+				"nomeLivre": true,
+				"descricao": "A conversa não diz quantas especialidades cada médico tem: qualquer nome e qualquer cardinalidade valem, só a ligação conta",
+				"entidadeOrigem": {
+					"nome": "médico",
+					"cardinalidade": ""
+				},
+				"entidadeDestino": {
+					"nome": "especialidade",
+					"cardinalidade": ""
+				},
+				"id": "R3"
+			}
+		]
+	},
+	"alternativas": [
+		{
+			"nome": "Modelo Entidade-Relacionamento - Clínica (consulta como relacionamento)",
+			"descricao": "Também certo: a consulta vira o relacionamento N:M entre médico e paciente, com data, horário e diagnóstico.",
+			"entidades": [
+				{
+					"nome": "paciente",
+					"atributos": [
+						{
+							"nome": "nome",
+							"opcional": true
+						},
+						{
+							"nome": "CPF",
+							"opcional": true
+						},
+						{
+							"nome": "telefone",
+							"opcional": true
+						}
+					]
+				},
+				{
+					"nome": "médico",
+					"atributos": [
+						{
+							"nome": "nome",
+							"opcional": true
+						},
+						{
+							"nome": "CRM",
+							"opcional": true
+						}
+					]
+				},
+				{
+					"nome": "especialidade",
+					"atributos": [
+						{
+							"nome": "nome",
+							"opcional": true
+						}
+					]
+				}
+			],
+			"relacionamentos": [
+				{
+					"nome": "consulta",
+					"sinonimos": [
+						"atende",
+						"tem",
+						"possui"
+					],
+					"entidadeOrigem": {
+						"nome": "médico",
+						"cardinalidade": "N"
+					},
+					"entidadeDestino": {
+						"nome": "paciente",
+						"cardinalidade": "M"
+					},
+					"atributosRelacionamento": [
+						{
+							"nome": "data"
+						},
+						{
+							"nome": "horário"
+						},
+						{
+							"nome": "diagnóstico"
+						}
+					]
+				},
+				{
+					"nome": "possui",
+					"nomeLivre": true,
+					"descricao": "A conversa não diz quantas especialidades cada médico tem: qualquer nome e qualquer cardinalidade valem, só a ligação conta",
+					"entidadeOrigem": {
+						"nome": "médico",
+						"cardinalidade": ""
+					},
+					"entidadeDestino": {
+						"nome": "especialidade",
+						"cardinalidade": ""
+					}
+				}
+			]
+		}
+	]
+}

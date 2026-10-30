@@ -1,0 +1,165 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/telas/menu_de_opcoes.gd" id="1_menu"]
+[ext_resource type="Script" path="res://Script/telas/texto_adesivo.gd" id="2_adesivo"]
+[ext_resource type="FontFile" path="res://assets/04b_19/04B_19__.TTF" id="3_04b"]
+
+[sub_resource type="StyleBoxFlat" id="Painel"]
+content_margin_left = 28.0
+content_margin_top = 22.0
+content_margin_right = 28.0
+content_margin_bottom = 24.0
+bg_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 8
+border_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="Botao_normal"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.16, 0.12, 0.36, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_hover"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_apertado"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2, 0.3, 0.8, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MenuDeOpcoes" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_menu")
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.01, 0.08, 0.65)
+
+[node name="Painel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -220.0
+offset_right = 200.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("Painel")
+
+[node name="Coluna" type="VBoxContainer" parent="Painel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Titulo" type="Control" parent="Painel/Coluna"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("2_adesivo")
+texto = "PAUSA"
+tamanho_da_fonte = 40
+
+[node name="Continuar" type="Button" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Voltar ao jogo (Esc)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "CONTINUAR"
+
+[node name="Salvar" type="Button" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Salvar o jogo no arquivo em uso"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "SALVAR"
+
+[node name="Configuracoes" type="Button" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Volume, dificuldade e salvamento automático"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "CONFIGURACOES"
+
+[node name="Sair" type="Button" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Voltar à tela de título (o que não foi salvo se perde)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "SAIR PARA O MENU"
+
+[node name="Aviso" type="Label" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.88, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Arquivo"
+horizontal_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://deue1vm1ovd7u"]
+
+[ext_resource type="Script" uid="uid://bqbfoxn25tv5h" path="res://Script/quadro/bloco.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://m2c6iv4bnohv" path="res://Sprites/3.png" id="2_forma"]
+
+[node name="Atributo" type="Node2D"]
+script = ExtResource("1_script")
+tipo_objeto = "atributos"
+formato = 2
+tamanho = Vector2(140, 78)
+tamanho_nome = Vector2(100, 26)
+
+[node name="Forma" type="Sprite2D" parent="."]
+texture = ExtResource("2_forma")
+region_enabled = true
+region_rect = Rect2(0, 39, 200, 122)

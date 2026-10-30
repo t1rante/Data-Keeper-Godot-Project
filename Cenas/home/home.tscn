@@ -1,0 +1,324 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/home/home.gd" id="1_home"]
+[ext_resource type="Texture2D" uid="uid://bql6y1jt2vxu7" path="res://Sprites/Fundo/Casa_dentro.png" id="2_quarto"]
+[ext_resource type="FontFile" path="res://assets/04b_19/04B_19__.TTF" id="3_04b"]
+[ext_resource type="FontFile" path="res://assets/pixeled/Pixeled.ttf" id="4_pixeled"]
+[ext_resource type="Script" path="res://Script/telas/texto_adesivo.gd" id="5_adesivo"]
+[ext_resource type="Texture2D" uid="uid://c3fb2wq45ntgp" path="res://Sprites/Personagens/blonde_man.png" id="6_protagonista"]
+[ext_resource type="Texture2D" path="res://Sprites/Personagens/isha.png" id="7_isha"]
+
+[sub_resource type="StyleBoxEmpty" id="Vazio"]
+
+[sub_resource type="StyleBoxFlat" id="Botao_normal"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16, 0.12, 0.36, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_hover"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_apertado"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.2, 0.3, 0.8, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_desligado"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16, 0.12, 0.36, 0.5)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_home")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+
+[node name="Quarto" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -45.0
+offset_top = 60.0
+offset_right = 1197.0
+offset_bottom = 570.0
+mouse_filter = 2
+texture = ExtResource("2_quarto")
+expand_mode = 1
+
+[node name="Desenhos" type="Control" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Isha" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(330, 432)
+scale = Vector2(3, 3)
+texture = ExtResource("7_isha")
+hframes = 2
+
+[node name="Protagonista" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(560, 448)
+scale = Vector2(6, 6)
+texture = ExtResource("6_protagonista")
+hframes = 4
+vframes = 8
+
+[node name="Noite" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 56.0
+offset_right = 1152.0
+offset_bottom = 576.0
+mouse_filter = 2
+color = Color(0.04, 0.03, 0.2, 0.5)
+
+[node name="Efeitos" type="Control" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Computador" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 132.0
+offset_top = 172.0
+offset_right = 236.0
+offset_bottom = 262.0
+tooltip_text = "Computador"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("Vazio")
+theme_override_styles/hover = SubResource("Vazio")
+theme_override_styles/pressed = SubResource("Vazio")
+theme_override_styles/disabled = SubResource("Vazio")
+flat = true
+
+[node name="Gato" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 274.0
+offset_top = 400.0
+offset_right = 388.0
+offset_bottom = 466.0
+tooltip_text = "Isha"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("Vazio")
+theme_override_styles/hover = SubResource("Vazio")
+theme_override_styles/pressed = SubResource("Vazio")
+theme_override_styles/disabled = SubResource("Vazio")
+flat = true
+metadata/sem_som = true
+
+[node name="Cama" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 760.0
+offset_top = 300.0
+offset_right = 1140.0
+offset_bottom = 540.0
+tooltip_text = "Cama"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("Vazio")
+theme_override_styles/hover = SubResource("Vazio")
+theme_override_styles/pressed = SubResource("Vazio")
+theme_override_styles/disabled = SubResource("Vazio")
+flat = true
+
+[node name="Topo" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 56.0
+mouse_filter = 2
+color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+
+[node name="Dia" type="Label" parent="Topo"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 26
+text = "DIA 1"
+vertical_alignment = 1
+
+[node name="Momento" type="Label" parent="Topo"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 170.0
+offset_top = 10.0
+offset_right = 360.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 0.84, 0, 1)
+theme_override_fonts/font = ExtResource("4_pixeled")
+theme_override_font_sizes/font_size = 12
+text = "MANHÃ"
+vertical_alignment = 1
+
+[node name="Dinheiro" type="Label" parent="Topo"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 640.0
+offset_top = 10.0
+offset_right = 980.0
+offset_bottom = 46.0
+tooltip_text = "Seu dinheiro"
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.36078432, 1, 0.94509804, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 26
+text = "R$ 0,00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="Topo"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 8.0
+offset_right = 1136.0
+offset_bottom = 48.0
+tooltip_text = "Menu de opções: salvar ou sair (Esc)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "MENU"
+
+[node name="Base" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 576.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+
+[node name="Dica" type="Label" parent="Base"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 820.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.85, 0.88, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "Dica"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Porta" type="Button" parent="Base"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 840.0
+offset_top = 14.0
+offset_right = 1136.0
+offset_bottom = 58.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.4862745, 0.60784316, 1, 0.4)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+theme_override_styles/disabled = SubResource("Botao_desligado")
+text = "IR TRABALHAR"
+
+[node name="Cortina" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Anuncio" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = 60.0
+mouse_filter = 2
+script = ExtResource("5_adesivo")
+texto = "DIA 1"
+tamanho_da_fonte = 72
+sombra = Vector2(6, 8)
+borda = 10

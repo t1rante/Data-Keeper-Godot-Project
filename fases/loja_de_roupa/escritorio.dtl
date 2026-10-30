@@ -1,0 +1,21 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Bruno leftmost
+Bruno: Coé, {nome}! Bem-vindo ao primeiro dia, mermão! Eu sou o Bruno, supervisor dessa galera aqui.
+Player: Valeu, Bruno! Tô um pouco nervoso.
+Bruno: Relaxa, aqui é tranquilo! Ambiente família. Né, Ana?
+join Ana rightmost
+Ana: Família é quem a gente escolhe, Bruno.
+Ana: E eu não escolhi.
+Bruno: Ela me ama, só não sabe demonstrar.
+Ana: Ana. Eu programo. Quer café? É preto, igual à minha alma.
+- Aceito, puro mesmo.
+	Ana: Hm. Talvez você sobreviva aqui.
+- Tem com leite?
+	Ana: Tem. Na padaria da esquina.
+Bruno: Ó, papo reto antes do cliente chegar.
+Bruno: Sabe, {nome}, muitas vezes a gente acaba esquecendo que os nossos clientes não programam. Faz parte do nosso trabalho entender o que eles querem dizer por trás das palavras deles, saca?
+Bruno: Então eles não vão falar sempre tudo o que a gente precisa. Corre atrás! Tenta conversar com eles e entender tudo o que você precisa antes de botar a mão na massa!
+Ana: Tradução: pergunta. Cliente não lê mente. Você também não.
+Bruno: Ih, alá, chegou! A dona da loja de roupas. Vai lá, campeão!
+leave Ana
+leave Bruno

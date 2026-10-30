@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfwi68bm0014x"]
+
+[ext_resource type="Script" uid="uid://do5nqdekg080w" path="res://Script/quadro/linha.gd" id="1_a6ur3"]
+
+[node name="Linha" type="Line2D"]
+script = ExtResource("1_a6ur3")

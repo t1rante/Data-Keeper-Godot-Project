@@ -1,0 +1,25 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Player leftmost
+join Loja_de_roupa rightmost
+Loja_de_roupa: Oi, tudo bem? Você que é o {nome}? O Bruno falou muito bem de você!
+Loja_de_roupa: Preciso de um sistema para registrar os meus clientes e exatamente quais produtos eles compraram!
+label perguntas_da_loja
+- Os clientes precisam entrar com e-mail na plataforma de vocês? | [if {perguntou.p1} == false]
+	set {perguntou.p1} = true
+	Loja_de_roupa: E-mail? Não, não! Minha loja é de bairro, ninguém cria conta. A pessoa escolhe as peças, eu anoto o pedido e pronto.
+	Loja_de_roupa: Cada pedido é de um cliente só. Mas tem cliente que volta toda semana e faz um pedido novo.
+	jump perguntas_da_loja
+- Os clientes podem comprar mais de um produto por vez? | [if {perguntou.p2} == false]
+	set {perguntou.p2} = true
+	Loja_de_roupa: Claro, quanto mais melhor! Num pedido vai calça, blusa, meia...
+	Loja_de_roupa: E o mesmo produto aparece em um monte de pedidos diferentes. Aquela blusa listrada vende que é uma beleza!
+	jump perguntas_da_loja
+- Certo, prossiga.
+Loja_de_roupa: Também é importante a gente ter guardado qual tamanho de produto ele comprou, para conseguirmos separar o certo!
+label mais_da_loja
+- Tem mais informações de um produto que são importantes? | [if {perguntou.p3} == false]
+	set {perguntou.p3} = true
+	Loja_de_roupa: Ah, tem! A cor, porque tenho blusa igualzinha em cinco cores. E o preço, claro, senão eu vou à falência.
+	jump mais_da_loja
+- Obrigado! Acho que eu entendi.
+Loja_de_roupa: Maravilha! Fico esperando, viu?

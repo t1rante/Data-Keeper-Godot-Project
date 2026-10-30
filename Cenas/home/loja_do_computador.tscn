@@ -1,0 +1,173 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/home/loja_do_computador.gd" id="1_loja"]
+[ext_resource type="FontFile" path="res://assets/04b_19/04B_19__.TTF" id="2_04b"]
+[ext_resource type="FontFile" path="res://assets/pixeled/Pixeled.ttf" id="3_pixeled"]
+
+[sub_resource type="StyleBoxFlat" id="Janela"]
+content_margin_left = 20.0
+content_margin_top = 16.0
+content_margin_right = 20.0
+content_margin_bottom = 16.0
+bg_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 12
+border_color = Color(0.36078432, 1, 0.94509804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Aba_normal"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16, 0.12, 0.36, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="Aba_hover"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="Aba_escolhida"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 0.45490196, 0.84313726, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[node name="Loja" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_loja")
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.01, 0.08, 0.6)
+
+[node name="Janela" type="PanelContainer" parent="."]
+offset_left = 96.0
+offset_top = 36.0
+offset_right = 1056.0
+offset_bottom = 612.0
+theme_override_styles/panel = SubResource("Janela")
+
+[node name="Coluna" type="VBoxContainer" parent="Janela"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Barra" type="HBoxContainer" parent="Janela/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Titulo" type="Label" parent="Janela/Coluna/Barra"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.36078432, 1, 0.94509804, 1)
+theme_override_fonts/font = ExtResource("2_04b")
+theme_override_font_sizes/font_size = 26
+text = "LOJINHA.NET"
+
+[node name="Saldo" type="Label" parent="Janela/Coluna/Barra"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Seu dinheiro"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.84, 0, 1)
+theme_override_fonts/font = ExtResource("2_04b")
+theme_override_font_sizes/font_size = 24
+text = "R$ 0,00"
+
+[node name="Fechar" type="Button" parent="Janela/Coluna/Barra"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Fechar a loja (Esc)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_04b")
+theme_override_font_sizes/font_size = 22
+text = " X "
+
+[node name="Abas" type="HBoxContainer" parent="Janela/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Skin" type="Button" parent="Janela/Coluna/Abas"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.91, 0.93, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("3_pixeled")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("Aba_normal")
+theme_override_styles/hover = SubResource("Aba_hover")
+theme_override_styles/pressed = SubResource("Aba_escolhida")
+toggle_mode = true
+text = "SKINS"
+
+[node name="Movel" type="Button" parent="Janela/Coluna/Abas"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.91, 0.93, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("3_pixeled")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("Aba_normal")
+theme_override_styles/hover = SubResource("Aba_hover")
+theme_override_styles/pressed = SubResource("Aba_escolhida")
+toggle_mode = true
+text = "MÓVEIS"
+
+[node name="Decoracao" type="Button" parent="Janela/Coluna/Abas"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.91, 0.93, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("3_pixeled")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("Aba_normal")
+theme_override_styles/hover = SubResource("Aba_hover")
+theme_override_styles/pressed = SubResource("Aba_escolhida")
+toggle_mode = true
+text = "DECORAÇÃO"
+
+[node name="Rolagem" type="ScrollContainer" parent="Janela/Coluna"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Grade" type="GridContainer" parent="Janela/Coluna/Rolagem"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 14
+columns = 3
+
+[node name="Aviso" type="Label" parent="Janela/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Bem-vindo à LOJINHA.NET! Compre com o dinheiro do trabalho."

@@ -1,0 +1,123 @@
+{
+	"diagrama": {
+		"nome": "Exemplo - Empresa (todos os recursos do gabarito)",
+		"versao": "1.0",
+		"descricao": "Gabarito de referência: usa entidade fraca, relacionamento identificador, atributos chave, composto, multivalorado e derivado, atributo de relacionamento, especialização, agregação e relacionamento de nome livre. Os testes (testes/teste_verificador.gd) usam este arquivo.",
+		"entidades": [
+			{
+				"id": "1",
+				"nome": "funcionário",
+				"sinonimos": ["empregado", "colaborador"],
+				"atributos": [
+					{"nome": "matrícula", "chavePrimaria": true},
+					{"nome": "nome"},
+					{
+						"nome": "endereço",
+						"componentes": [
+							{"nome": "rua", "sinonimos": ["logradouro"]},
+							{"nome": "número"},
+							{"nome": "cidade"}
+						]
+					},
+					{"nome": "telefone", "multivalorado": true},
+					{"nome": "idade", "derivado": true, "descricao": "Calculada pela data de nascimento"},
+					{"nome": "data de nascimento", "opcional": true}
+				]
+			},
+			{
+				"id": "2",
+				"nome": "dependente",
+				"fraca": true,
+				"atributos": [
+					{"nome": "nome", "chavePrimaria": true, "descricao": "Chave parcial: só identifica junto com o funcionário"},
+					{"nome": "parentesco"}
+				]
+			},
+			{
+				"id": "3",
+				"nome": "engenheiro",
+				"atributos": [
+					{"nome": "CREA"}
+				]
+			},
+			{
+				"id": "4",
+				"nome": "secretário",
+				"atributos": []
+			},
+			{
+				"id": "5",
+				"nome": "projeto",
+				"atributos": [
+					{"nome": "código", "sinonimos": ["id"], "chavePrimaria": true}
+				]
+			},
+			{
+				"id": "6",
+				"nome": "equipamento",
+				"atributos": [
+					{"nome": "número de série", "sinonimos": ["patrimônio"], "chavePrimaria": true}
+				]
+			},
+			{
+				"id": "7",
+				"nome": "departamento",
+				"sinonimos": ["setor"],
+				"atributos": [
+					{"nome": "sigla", "chavePrimaria": true}
+				]
+			}
+		],
+		"relacionamentos": [
+			{
+				"id": "R1",
+				"nome": "possui",
+				"sinonimos": ["tem", "sustenta"],
+				"identificador": true,
+				"descricao": "Um funcionário tem vários dependentes; o dependente só existe ligado a um funcionário",
+				"entidadeOrigem": {"nome": "funcionário", "cardinalidade": "1"},
+				"entidadeDestino": {"nome": "dependente", "cardinalidade": "N"}
+			},
+			{
+				"id": "R2",
+				"nome": "trabalha em",
+				"sinonimos": ["trabalha", "atua", "participa"],
+				"entidadeOrigem": {"nome": "engenheiro", "cardinalidade": "N"},
+				"entidadeDestino": {"nome": "projeto", "cardinalidade": "M"},
+				"atributosRelacionamento": [
+					{"nome": "horas", "sinonimos": ["horas trabalhadas", "carga horária"]}
+				]
+			},
+			{
+				"id": "R3",
+				"nome": "lotado",
+				"nomeLivre": true,
+				"descricao": "Qualquer nome serve; só as ligações e as cardinalidades contam",
+				"entidadeOrigem": {"nome": "funcionário", "cardinalidade": "N"},
+				"entidadeDestino": {"nome": "departamento", "cardinalidade": "1"}
+			},
+			{
+				"id": "R4",
+				"nome": "usa",
+				"sinonimos": ["utiliza"],
+				"descricao": "A alocação de um engenheiro num projeto usa equipamentos (relacionamento com a agregação)",
+				"participantes": [
+					{"nome": "Alocação", "cardinalidade": "N"},
+					{"nome": "equipamento", "cardinalidade": "M"}
+				]
+			}
+		],
+		"especializacoes": [
+			{
+				"entidadePai": {"nome": "funcionário"},
+				"entidadesFilhas": [{"nome": "engenheiro"}, {"nome": "secretário"}]
+			}
+		],
+		"agregacoes": [
+			{
+				"nome": "Alocação",
+				"relacionamento": "R2"
+			}
+		]
+	}
+}

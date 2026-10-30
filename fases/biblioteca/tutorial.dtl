@@ -1,0 +1,8 @@
+# Tutorial do dia 2: a Ana explica atributo de relacionamento e N para M.
+Ana: {nome}. Hoje tem um detalhe que pega muita gente.
+Ana: Às vezes uma informação não é de uma entidade nem da outra. Ela é do encontro das duas.
+Ana: Aí o atributo liga no losango, no relacionamento...
+Ana: ...
+Ana:  Pode conectar sim cara. Não precisa me olhar assim.
+Ana: E quando os dois lados têm "vários", é N para M. Clique direito na linha até ficar N de um lado e M do outro.
+Ana: Pronto. Agora some da minha frente e vai modelar.

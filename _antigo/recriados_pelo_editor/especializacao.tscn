@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://yq66063gm0pt"]
+
+[ext_resource type="Script" path="res://Script/objeto.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://ds7rx8y26d3hv" path="res://Sprites/especialização.png" id="2_forma"]
+
+[node name="Especializacao" type="Node2D" unique_id=615719038]
+script = ExtResource("1_script")
+tipo_objeto = "especializacoes"
+formato = 3
+tamanho = Vector2(136, 72)
+tamanho_nome = Vector2(66, 22)
+centro_nome = Vector2(0, -15)
+virar_forma = true
+
+[node name="Forma" type="Sprite2D" parent="." unique_id=1533241221]
+texture = ExtResource("2_forma")
+region_enabled = true
+region_rect = Rect2(0, 0, 391, 193)

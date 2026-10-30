@@ -1,0 +1,18 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Bruno leftmost
+join Ana rightmost
+Bruno: Bom dia, {nome}! Ontem foi sinistro, hein? Primeiro cliente e já mandou bem!
+Ana: "Sinistro" no sentido carioca, imagino. Porque o diagrama de ontem...
+Bruno: Ana!
+Ana: Tô brincando. Ficou aceitável. É o maior elogio que eu faço.
+- Valeu, Ana. Vindo de você, é muito.
+	Ana: Não se acostuma.
+- Aceitável? Ficou ótimo!
+	Ana: A autoestima tá em dia. Bom pra você.
+Bruno: Hoje é um bibliotecário. Gente boa, mas fala que nem livro: enrola, enrola...
+Bruno: Fica esperto: quando ele falar de alguma coisa, pergunta quantos de cada um podem ir juntos. Isso muda o modelo todo.
+Ana: E quando falar de data, pergunta de quem é a data. Data não brota do nada.
+Bruno: Olha ela ajudando! Tô emocionado.
+Ana: Foi sem querer. Não vai acontecer de novo.
+leave Ana
+leave Bruno

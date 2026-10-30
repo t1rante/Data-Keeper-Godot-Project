@@ -1,0 +1,192 @@
+{
+	"diagrama": {
+		"nome": "Modelo Entidade-Relacionamento - Biblioteca",
+		"versao": "1.0",
+		"descricao": "Gabarito do diálogo fases/biblioteca/conversa.dtl: livros, autores e clientes; um livro pode ter mais de um autor; um cliente pega vários livros emprestados; o empréstimo guarda a data, a previsão de devolução e a data em que o livro voltou. Atributos opcionais não valem ponto nem descontam.",
+		"entidades": [
+			{
+				"nome": "livro",
+				"atributos": [
+					{
+						"nome": "título",
+						"opcional": true
+					},
+					{
+						"nome": "ISBN",
+						"opcional": true
+					}
+				],
+				"id": "1"
+			},
+			{
+				"nome": "autor",
+				"atributos": [
+					{
+						"nome": "nome",
+						"opcional": true
+					}
+				],
+				"id": "2"
+			},
+			{
+				"nome": "cliente",
+				"atributos": [
+					{
+						"nome": "nome",
+						"opcional": true
+					},
+					{
+						"nome": "CPF",
+						"opcional": true
+					},
+					{
+						"nome": "telefone",
+						"opcional": true
+					}
+				],
+				"id": "3"
+			}
+		],
+		"relacionamentos": [
+			{
+				"nome": "escreve",
+				"descricao": "Um livro pode ter mais de um autor e um autor escreve vários livros",
+				"entidadeOrigem": {
+					"nome": "autor",
+					"cardinalidade": "N"
+				},
+				"entidadeDestino": {
+					"nome": "livro",
+					"cardinalidade": "M"
+				},
+				"id": "R1"
+			},
+			{
+				"id": "R2",
+				"nome": "empréstimo",
+				"sinonimos": [
+					"empresta"
+				],
+				"descricao": "Um cliente pega vários livros e um livro é emprestado a vários clientes ao longo do tempo; as datas são do empréstimo, não do livro nem do cliente",
+				"entidadeOrigem": {
+					"nome": "cliente",
+					"cardinalidade": "N"
+				},
+				"entidadeDestino": {
+					"nome": "livro",
+					"cardinalidade": "M"
+				},
+				"atributosRelacionamento": [
+					{
+						"nome": "data do empréstimo"
+					},
+					{
+						"nome": "previsão de devolução"
+					},
+					{
+						"nome": "data de devolução"
+					}
+				]
+			}
+		]
+	},
+	"alternativas": [
+		{
+			"nome": "Modelo Entidade-Relacionamento - Biblioteca (empréstimo como entidade)",
+			"descricao": "Também certo: o empréstimo vira entidade com as três datas; o cliente faz vários empréstimos e cada empréstimo inclui livros. Quantos livros por empréstimo a conversa não diz, então essa ponta não é corrigida.",
+			"entidades": [
+				{
+					"nome": "livro",
+					"atributos": [
+						{
+							"nome": "título",
+							"opcional": true
+						},
+						{
+							"nome": "ISBN",
+							"opcional": true
+						}
+					]
+				},
+				{
+					"nome": "autor",
+					"atributos": [
+						{
+							"nome": "nome",
+							"opcional": true
+						}
+					]
+				},
+				{
+					"nome": "cliente",
+					"atributos": [
+						{
+							"nome": "nome",
+							"opcional": true
+						},
+						{
+							"nome": "CPF",
+							"opcional": true
+						},
+						{
+							"nome": "telefone",
+							"opcional": true
+						}
+					]
+				},
+				{
+					"nome": "empréstimo",
+					"atributos": [
+						{
+							"nome": "data do empréstimo"
+						},
+						{
+							"nome": "previsão de devolução"
+						},
+						{
+							"nome": "data de devolução"
+						}
+					]
+				}
+			],
+			"relacionamentos": [
+				{
+					"nome": "escreve",
+					"descricao": "Um livro pode ter mais de um autor e um autor escreve vários livros",
+					"entidadeOrigem": {
+						"nome": "autor",
+						"cardinalidade": "N"
+					},
+					"entidadeDestino": {
+						"nome": "livro",
+						"cardinalidade": "M"
+					}
+				},
+				{
+					"nome": "faz",
+					"nomeLivre": true,
+					"entidadeOrigem": {
+						"nome": "cliente",
+						"cardinalidade": "1"
+					},
+					"entidadeDestino": {
+						"nome": "empréstimo",
+						"cardinalidade": "N"
+					}
+				},
+				{
+					"nome": "inclui",
+					"nomeLivre": true,
+					"entidadeOrigem": {
+						"nome": "empréstimo",
+						"cardinalidade": "N"
+					},
+					"entidadeDestino": {
+						"nome": "livro",
+						"cardinalidade": ""
+					}
+				}
+			]
+		}
+	]
+}

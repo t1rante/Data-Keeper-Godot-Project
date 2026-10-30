@@ -1,0 +1,34 @@
+{
+	"problema": "Clínica",
+	"descricao": "Banco de palavras da conversa fases/clinica/conversa.dtl. O gabarito é o gabarito.json desta mesma pasta.",
+	"ordem": "alfabetica",
+	"palavras": [
+		"paciente",
+		"médico",
+		"consulta",
+		"especialidade",
+		"faz",
+		"marca",
+		"atende",
+		"realiza",
+		"possui",
+		"tem",
+		"data",
+		"horário",
+		"diagnóstico"
+	],
+	"extras": [
+		"nome",
+		"CPF",
+		"CRM",
+		"telefone"
+	],
+	"distratores": [
+		"clínica",
+		"recepção",
+		"enfermeiro",
+		"remédio",
+		"maca",
+		"sala de espera"
+	]
+}

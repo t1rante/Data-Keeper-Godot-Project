@@ -1,0 +1,6 @@
+# Tutorial do dia 3: a Ana explica quando um relacionamento vira entidade.
+Ana: Consulta é um caso clássico, {nome}.
+Ana: Dá pra desenhar como um relacionamento entre médico e paciente. É um losango, ninguém morre.
+Ana: Mas, se a consulta tem informação própria, ela pode virar entidade. Aí ela liga no médico e no paciente, cada ligação com seu 1 e seu N.
+Ana: As duas formas valem. A que não vale é inventar coisa que o médico não falou.
+Ana: E, se você não perguntou nada pra ele... boa sorte. Sério.

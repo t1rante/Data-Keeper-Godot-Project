@@ -1,0 +1,33 @@
+{
+	"problema": "Biblioteca",
+	"descricao": "Banco de palavras da conversa fases/biblioteca/conversa.dtl. O gabarito é o gabarito.json desta mesma pasta.",
+	"ordem": "alfabetica",
+	"palavras": [
+		"livro",
+		"autor",
+		"cliente",
+		"escreve",
+		"empréstimo",
+		"empresta",
+		"data do empréstimo",
+		"previsão de devolução",
+		"data de devolução",
+		"faz",
+		"inclui"
+	],
+	"extras": [
+		"título",
+		"ISBN",
+		"nome",
+		"CPF",
+		"telefone"
+	],
+	"distratores": [
+		"biblioteca",
+		"bibliotecário",
+		"estante",
+		"prateleira",
+		"planilha",
+		"balcão"
+	]
+}

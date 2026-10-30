@@ -1,0 +1,190 @@
+{
+	"diagrama": {
+		"nome": "Modelo Entidade-Relacionamento - Loja de Roupas",
+		"versao": "1.0",
+		"descricao": "Gabarito do diálogo fases/loja_de_roupa/conversa.dtl: produtos com tamanho, cor e preço; clientes fazem pedidos; um pedido tem vários produtos e um produto aparece em vários pedidos.",
+		"entidades": [
+			{
+				"id": "1",
+				"nome": "cliente",
+				"atributos": []
+			},
+			{
+				"id": "2",
+				"nome": "pedido",
+				"sinonimos": [
+					"venda"
+				],
+				"atributos": []
+			},
+			{
+				"id": "3",
+				"nome": "produto",
+				"sinonimos": [
+					"roupa",
+					"peça"
+				],
+				"atributos": [
+					{
+						"nome": "tamanho",
+						"tipo": "VARCHAR(10)",
+						"chavePrimaria": false,
+						"descricao": "Tamanho da peça"
+					},
+					{
+						"nome": "cor",
+						"tipo": "VARCHAR(30)",
+						"chavePrimaria": false,
+						"descricao": "Cor da peça"
+					},
+					{
+						"nome": "preço",
+						"tipo": "DECIMAL(10, 2)",
+						"chavePrimaria": false,
+						"descricao": "Preço de venda"
+					}
+				]
+			}
+		],
+		"relacionamentos": [
+			{
+				"id": "R1",
+				"nome": "faz",
+				"sinonimos": [
+					"realiza",
+					"efetua",
+					"solicita",
+					"compra",
+					"possui",
+					"tem"
+				],
+				"descricao": "Um cliente faz vários pedidos; cada pedido é de um cliente",
+				"entidadeOrigem": {
+					"nome": "cliente",
+					"cardinalidade": "1"
+				},
+				"entidadeDestino": {
+					"nome": "pedido",
+					"cardinalidade": "N"
+				},
+				"tipo": "Um para Muitos"
+			},
+			{
+				"id": "R2",
+				"nome": "contém",
+				"sinonimos": [
+					"possui",
+					"tem",
+					"inclui",
+					"item",
+					"vende",
+					"refere-se"
+				],
+				"descricao": "Um pedido tem vários produtos e um produto aparece em vários pedidos",
+				"entidadeOrigem": {
+					"nome": "pedido",
+					"cardinalidade": "N"
+				},
+				"entidadeDestino": {
+					"nome": "produto",
+					"cardinalidade": "M"
+				},
+				"tipo": "Muitos para Muitos"
+			}
+		]
+	},
+	"alternativas": [
+		{
+			"nome": "Modelo Entidade-Relacionamento - Loja de Roupas (item do pedido)",
+			"descricao": "Também certo: o N:M entre pedido e produto vira a entidade associativa 'item do pedido', com dois relacionamentos 1:N. O verificador fica com a melhor nota entre o modelo principal e as alternativas.",
+			"entidades": [
+				{
+					"nome": "cliente",
+					"atributos": []
+				},
+				{
+					"nome": "pedido",
+					"sinonimos": [
+						"venda"
+					],
+					"atributos": []
+				},
+				{
+					"nome": "produto",
+					"sinonimos": [
+						"roupa",
+						"peça"
+					],
+					"atributos": [
+						{
+							"nome": "tamanho",
+							"chavePrimaria": false
+						},
+						{
+							"nome": "cor",
+							"chavePrimaria": false
+						},
+						{
+							"nome": "preço",
+							"chavePrimaria": false
+						}
+					]
+				},
+				{
+					"nome": "item do pedido",
+					"sinonimos": [
+						"item"
+					],
+					"atributos": []
+				}
+			],
+			"relacionamentos": [
+				{
+					"nome": "faz",
+					"sinonimos": [
+						"realiza",
+						"efetua",
+						"solicita",
+						"compra",
+						"possui",
+						"tem"
+					],
+					"entidadeOrigem": {
+						"nome": "cliente",
+						"cardinalidade": "1"
+					},
+					"entidadeDestino": {
+						"nome": "pedido",
+						"cardinalidade": "N"
+					}
+				},
+				{
+					"nome": "tem",
+					"nomeLivre": true,
+					"descricao": "Um pedido tem vários itens; cada item é de um pedido",
+					"entidadeOrigem": {
+						"nome": "pedido",
+						"cardinalidade": "1"
+					},
+					"entidadeDestino": {
+						"nome": "item do pedido",
+						"cardinalidade": "N"
+					}
+				},
+				{
+					"nome": "refere",
+					"nomeLivre": true,
+					"descricao": "Cada item é de um produto; um produto aparece em vários itens",
+					"entidadeOrigem": {
+						"nome": "item do pedido",
+						"cardinalidade": "N"
+					},
+					"entidadeDestino": {
+						"nome": "produto",
+						"cardinalidade": "1"
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,109 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/telas/creditos.gd" id="1_creditos"]
+[ext_resource type="Script" path="res://Script/telas/texto_adesivo.gd" id="2_adesivo"]
+[ext_resource type="FontFile" path="res://assets/04b_19/04B_19__.TTF" id="3_04b"]
+
+[sub_resource type="StyleBoxFlat" id="Painel"]
+content_margin_left = 36.0
+content_margin_top = 22.0
+content_margin_right = 36.0
+content_margin_bottom = 24.0
+bg_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 8
+border_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="Botao_normal"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16, 0.12, 0.36, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_hover"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Creditos" type="CanvasLayer"]
+process_mode = 3
+layer = 30
+script = ExtResource("1_creditos")
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.01, 0.08, 0.72)
+
+[node name="Painel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -250.0
+offset_right = 360.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("Painel")
+
+[node name="Coluna" type="VBoxContainer" parent="Painel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Control" parent="Painel/Coluna"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("2_adesivo")
+texto = "CREDITOS"
+tamanho_da_fonte = 36
+
+[node name="Equipe" type="VBoxContainer" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Espaco" type="Control" parent="Painel/Coluna"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Voltar" type="Button" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Fechar (Esc)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_hover")
+text = "VOLTAR"

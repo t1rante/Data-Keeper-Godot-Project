@@ -1,0 +1,16 @@
+[background arg="res://Sprites/Fundo/Escritorio_dentro2.png" fade="0.0"]
+join Bruno leftmost
+join Ana rightmost
+Bruno: E aí, {nome}! Último cliente da semana! Hoje é médico, então capricha, que a parada é séria.
+Ana: Médico. Ótimo. Vai falar difícil e escrever pior ainda.
+Bruno: Pô, Ana, preconceito com a letra do doutor!
+Ana: Não é preconceito. É experiência.
+Bruno: Dica de ouro: médico é ocupado e responde só o que você perguntar. Se não perguntar, ele não fala.
+Ana: Igual a mim. Só que eu cobro mais caro.
+- Vou perguntar tudo, pode deixar.
+	Bruno: É isso aí! Partiu!
+- Será que eu dou conta?
+	Bruno: Dá, sim! Você já fez dois, mermão. Confia!
+	Ana: Se não der, a culpa é do Bruno. Ele que te contratou.
+leave Ana
+leave Bruno

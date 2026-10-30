@@ -1,0 +1,34 @@
+{
+	"problema": "Loja de roupas",
+	"descricao": "Banco de palavras da conversa fases/loja_de_roupa/conversa.dtl. O jogador arrasta estas palavras até os blocos para dar nome a eles. O gabarito é o gabarito.json desta mesma pasta.",
+	"ordem": "alfabetica",
+	"palavras": [
+		"cliente",
+		"pedido",
+		"produto",
+		"faz",
+		"contém",
+		"tamanho",
+		"cor",
+		"preço",
+		"item do pedido",
+		"tem",
+		"refere-se"
+	],
+	"extras": [
+		"nome",
+		"CPF",
+		"data",
+		"quantidade",
+		"código"
+	],
+	"distratores": [
+		"loja",
+		"vendedor",
+		"fornecedor",
+		"vitrine",
+		"sacola",
+		"caixa",
+		"pagamento"
+	]
+}

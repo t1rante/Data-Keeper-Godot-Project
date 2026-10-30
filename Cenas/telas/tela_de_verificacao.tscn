@@ -1,0 +1,224 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/telas/tela_de_verificacao.gd" id="1_tela"]
+[ext_resource type="Script" path="res://Script/telas/texto_adesivo.gd" id="2_adesivo"]
+[ext_resource type="FontFile" path="res://assets/04b_19/04B_19__.TTF" id="3_04b"]
+[ext_resource type="FontFile" path="res://assets/pixeled/Pixeled.ttf" id="4_pixeled"]
+
+[sub_resource type="StyleBoxFlat" id="Painel"]
+content_margin_left = 22.0
+content_margin_top = 18.0
+content_margin_right = 14.0
+content_margin_bottom = 16.0
+bg_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 8
+border_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="Botao_normal"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.066763654, 0.029276408, 0.1771138, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_hover"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_apertado"]
+content_margin_left = 22.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2, 0.3, 0.8, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="TelaDeVerificacao" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_tela")
+
+[node name="Fundo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4862745, 0.60784316, 1, 1)
+
+[node name="Titulo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 22.0
+offset_right = 460.0
+offset_bottom = 100.0
+mouse_filter = 2
+script = ExtResource("2_adesivo")
+texto = "RESULTADO"
+tamanho_da_fonte = 50
+
+[node name="Subtitulo" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 106.0
+offset_right = 500.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("4_pixeled")
+theme_override_font_sizes/font_size = 10
+text = "VERIFICAÇÃO DO DIAGRAMA"
+
+[node name="Problema" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 44.0
+offset_top = 132.0
+offset_right = 500.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_font_sizes/font_size = 20
+text = "Problema"
+
+[node name="Nota" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 164.0
+offset_right = 460.0
+offset_bottom = 280.0
+mouse_filter = 2
+script = ExtResource("2_adesivo")
+texto = "0%"
+tamanho_da_fonte = 84
+sombra = Vector2(6, 8)
+borda = 10
+
+[node name="Veredito" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 44.0
+offset_top = 290.0
+offset_right = 500.0
+offset_bottom = 316.0
+theme_override_colors/font_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_fonts/font = ExtResource("4_pixeled")
+theme_override_font_sizes/font_size = 12
+text = "VEREDITO"
+
+[node name="Pontos" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 44.0
+offset_top = 320.0
+offset_right = 500.0
+offset_bottom = 342.0
+theme_override_colors/font_color = Color(0.06666667, 0.02745098, 0.1764706, 0.8)
+theme_override_font_sizes/font_size = 15
+text = "0 de 0 pontos"
+
+[node name="Partes" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 44.0
+offset_top = 356.0
+offset_right = 504.0
+offset_bottom = 616.0
+theme_override_constants/separation = 6
+
+[node name="Painel" type="PanelContainer" parent="."]
+offset_left = 528.0
+offset_top = 26.0
+offset_right = 1118.0
+offset_bottom = 566.0
+theme_override_styles/panel = SubResource("Painel")
+
+[node name="Coluna" type="VBoxContainer" parent="Painel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Cabecalho" type="Label" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0.84313726, 1)
+theme_override_fonts/font = ExtResource("4_pixeled")
+theme_override_font_sizes/font_size = 12
+text = "POR QUE NÃO FOI NOTA MÁXIMA"
+
+[node name="Explicacao" type="RichTextLabel" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9137255, 0.92941177, 1, 1)
+theme_override_constants/line_separation = 3
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+bbcode_enabled = true
+scroll_following = false
+
+[node name="Botoes" type="HBoxContainer" parent="."]
+offset_left = 528.0
+offset_top = 578.0
+offset_right = 1118.0
+offset_bottom = 634.0
+theme_override_constants/separation = 14
+alignment = 2
+
+[node name="Pagamento" type="Label" parent="Botoes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+theme_override_font_sizes/font_size = 14
+text = "Entregando agora, você recebe R$ 0,00"
+autowrap_mode = 3
+vertical_alignment = 1
+
+[node name="Voltar" type="Button" parent="Botoes"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Voltar ao quadro (Esc)"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "VOLTAR AO QUADRO"
+
+[node name="Entregar" type="Button" parent="Botoes"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Entregar o diagrama ao cliente e receber o pagamento"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_apertado")
+text = "ENTREGAR"

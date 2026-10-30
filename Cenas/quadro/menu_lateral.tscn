@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/quadro/menu_lateral.gd" id="1_menu"]
+
+[sub_resource type="StyleBoxFlat" id="Fundo"]
+bg_color = Color(0.066763654, 0.029276408, 0.1771138, 0.45)
+corner_radius_top_left = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="Aba_normal"]
+bg_color = Color(0.066763654, 0.029276408, 0.1771138, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Aba_hover"]
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Aba_apertada"]
+bg_color = Color(0.2, 0.3, 0.8, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[node name="MenuLateral" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 904.0
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 590.0
+mouse_filter = 2
+script = ExtResource("1_menu")
+
+[node name="Fundo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("Fundo")
+
+[node name="Aba" type="Button" parent="."]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 14.0
+offset_bottom = 70.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("Aba_normal")
+theme_override_styles/hover = SubResource("Aba_hover")
+theme_override_styles/pressed = SubResource("Aba_apertada")
+text = "<"

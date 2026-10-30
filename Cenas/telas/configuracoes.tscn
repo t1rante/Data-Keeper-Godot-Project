@@ -1,0 +1,317 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/telas/configuracoes.gd" id="1_config"]
+[ext_resource type="Script" path="res://Script/telas/texto_adesivo.gd" id="2_adesivo"]
+[ext_resource type="FontFile" path="res://assets/04b_19/04B_19__.TTF" id="3_04b"]
+
+[sub_resource type="StyleBoxFlat" id="Painel"]
+content_margin_left = 32.0
+content_margin_top = 22.0
+content_margin_right = 32.0
+content_margin_bottom = 24.0
+bg_color = Color(0.06666667, 0.02745098, 0.1764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 8
+border_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="Botao_normal"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16, 0.12, 0.36, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_hover"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Botao_escolhido"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(0.3150174, 0.44430792, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.45490196, 0.84313726, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="Trilho"]
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.16, 0.12, 0.36, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="Trilho_cheio"]
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.36078432, 1, 0.94509804, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="ButtonGroup" id="Dificuldades"]
+
+[node name="Configuracoes" type="CanvasLayer"]
+process_mode = 3
+layer = 30
+script = ExtResource("1_config")
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.01, 0.08, 0.72)
+
+[node name="Painel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -228.0
+offset_right = 330.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("Painel")
+
+[node name="Coluna" type="VBoxContainer" parent="Painel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Titulo" type="Control" parent="Painel/Coluna"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("2_adesivo")
+texto = "CONFIGURACOES"
+tamanho_da_fonte = 36
+
+[node name="VolumeDoJogo" type="HBoxContainer" parent="Painel/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Rotulo" type="Label" parent="Painel/Coluna/VolumeDoJogo"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+text = "VOLUME DO JOGO"
+
+[node name="Volume" type="HSlider" parent="Painel/Coluna/VolumeDoJogo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/slider = SubResource("Trilho")
+theme_override_styles/grabber_area = SubResource("Trilho_cheio")
+theme_override_styles/grabber_area_highlight = SubResource("Trilho_cheio")
+step = 5.0
+value = 80.0
+
+[node name="Valor" type="Label" parent="Painel/Coluna/VolumeDoJogo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91, 0.93, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "80%"
+horizontal_alignment = 2
+
+[node name="VolumeDaMusica" type="HBoxContainer" parent="Painel/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Rotulo" type="Label" parent="Painel/Coluna/VolumeDaMusica"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+text = "VOLUME DA MUSICA"
+
+[node name="Musica" type="HSlider" parent="Painel/Coluna/VolumeDaMusica"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/slider = SubResource("Trilho")
+theme_override_styles/grabber_area = SubResource("Trilho_cheio")
+theme_override_styles/grabber_area_highlight = SubResource("Trilho_cheio")
+step = 5.0
+value = 70.0
+
+[node name="ValorDaMusica" type="Label" parent="Painel/Coluna/VolumeDaMusica"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91, 0.93, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "70%"
+horizontal_alignment = 2
+
+[node name="Espaco1" type="Control" parent="Painel/Coluna"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Dificuldade" type="HBoxContainer" parent="Painel/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Rotulo" type="Label" parent="Painel/Coluna/Dificuldade"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+text = "DIFICULDADE"
+
+[node name="Didatico" type="Button" parent="Painel/Coluna/Dificuldade"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_escolhido")
+theme_override_styles/hover_pressed = SubResource("Botao_escolhido")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("Dificuldades")
+text = "DIDATICO"
+
+[node name="Desafio" type="Button" parent="Painel/Coluna/Dificuldade"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_escolhido")
+theme_override_styles/hover_pressed = SubResource("Botao_escolhido")
+toggle_mode = true
+button_group = SubResource("Dificuldades")
+text = "DESAFIO"
+
+[node name="DescricaoDaDificuldade" type="Label" parent="Painel/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.88, 1, 0.85)
+theme_override_font_sizes/font_size = 15
+text = "Didático: ao verificar, o jogo mostra a nota e explica tudo o que faltou."
+autowrap_mode = 3
+
+[node name="SalvamentoAutomatico" type="HBoxContainer" parent="Painel/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Rotulo" type="Label" parent="Painel/Coluna/SalvamentoAutomatico"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+text = "SALVAMENTO AUTOMATICO"
+autowrap_mode = 3
+
+[node name="Automatico" type="Button" parent="Painel/Coluna/SalvamentoAutomatico"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_escolhido")
+theme_override_styles/hover_pressed = SubResource("Botao_escolhido")
+toggle_mode = true
+button_pressed = true
+text = "LIGADO"
+
+[node name="DescricaoDoSalvamento" type="Label" parent="Painel/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.88, 1, 0.85)
+theme_override_font_sizes/font_size = 15
+text = "O jogo salva sozinho no começo do dia, antes de cada cliente e ao entregar."
+autowrap_mode = 3
+
+[node name="Espaco2" type="Control" parent="Painel/Coluna"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Voltar" type="Button" parent="Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Fechar (Esc). As mudanças já estão salvas."
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4862745, 0.60784316, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_04b")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("Botao_normal")
+theme_override_styles/hover = SubResource("Botao_hover")
+theme_override_styles/pressed = SubResource("Botao_hover")
+text = "VOLTAR"
